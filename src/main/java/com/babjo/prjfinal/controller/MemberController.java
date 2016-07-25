@@ -104,12 +104,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/uselist", method=RequestMethod.GET)
-	public String mygroup(){
+	public String uselist(int m_code, Model model){
+		model.addAttribute("useList", service.useList(m_code));
 		return "member/uselist";
 	}
 	
 	@RequestMapping(value="/paylist", method=RequestMethod.GET)
-	public String paylist(){
+	public String paylist(int m_code, Model model){
+		model.addAttribute("payList", service.payList(m_code));
 		return "member/paylist";
 	}
 }

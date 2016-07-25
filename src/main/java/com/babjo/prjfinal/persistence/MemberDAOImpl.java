@@ -1,6 +1,7 @@
 package com.babjo.prjfinal.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -9,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.babjo.prjfinal.domain.MemberVO;
+import com.babjo.prjfinal.domain.PaymentVO;
+import com.babjo.prjfinal.domain.RentVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -40,6 +43,16 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void doUpdate(MemberVO member) {
 		sqlSession.update(NAMESPACE + ".doUpdate", member);
+	}
+
+	@Override
+	public List<RentVO> useList(int m_code) {
+		return sqlSession.selectList(NAMESPACE + ".useList", m_code);
+	}
+
+	@Override
+	public List<PaymentVO> payList(int m_code) {
+		return sqlSession.selectList(NAMESPACE + ".payList", m_code);
 	}
 	
 }

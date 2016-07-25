@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -79,8 +79,8 @@
 	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 30%">
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
 		    <li role="presentation"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="color: #aaaaaa; font-size: medium">내 정보</span></a></li>
-		    <li role="presentation"><a href="/member/uselist" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역</span></a></li>
-		    <li role="presentation" class="active"><a href="/member/paylist" aria-controls="paylist" role="tab"><span style="font-size: medium">결제내역</span></a></li>
+		    <li role="presentation"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역</span></a></li>
+		    <li role="presentation" class="active"><a href="/member/paylist?m_code=${member.m_code}" aria-controls="paylist" role="tab"><span style="font-size: medium">결제내역</span></a></li>
 		  </ul>
 	  </div>
 	  <!-- Tab panes -->
@@ -89,12 +89,11 @@
 		  	<tr>
 		  		<th>번호</th><th>구매상품</th><th>결제날짜</th><th>결제금액</th><th>결제수단</th><th>마일리지</th>
 		  	</tr>
-		  	<tr>
-		  		<td>1</td><td>30일권</td><td>2016.2.6</td><td>5000</td><td>신용카드</td><td>500</td>
-		  	</tr>
-		  	<tr>
-		  		<td>2</td><td>30일권</td><td>2016.3.7</td><td>5000</td><td>휴대폰</td><td>500</td>
-		  	</tr>
+		  	<c:forEach begin="0" end="30" var="list" items="${payList}" varStatus="status">
+		  		<tr>
+			  		<td>${status.count}</td><td>30일권</td><td>${list.payment_date}</td><td>${list.amount}원</td><td>${list.payment_means}</td><td>${list.amount/20}캐시</td>
+			  	</tr>
+		  	</c:forEach>
 		  </table>
 	  </div>
 	  <div class="col-md-2"></div>
