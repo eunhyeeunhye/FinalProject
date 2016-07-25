@@ -1,4 +1,4 @@
-package com.babjo.prjfinal;
+package com.babjo.prjfinal.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
