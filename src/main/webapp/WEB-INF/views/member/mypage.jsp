@@ -79,8 +79,8 @@
 	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 30%">
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
 		    <li role="presentation" class="active"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="font-size: medium">내 정보</span></a></li>
-		    <li role="presentation"><a href="/member/uselist" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역</span></a></li>
-		    <li role="presentation"><a href="/member/paylist" aria-controls="paylist" role="tab"><span style="color: #aaaaaa; font-size: medium">결제내역</span></a></li>
+		    <li role="presentation"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역</span></a></li>
+		    <li role="presentation"><a href="/member/paylist?m_code=${member.m_code}" aria-controls="paylist" role="tab"><span style="color: #aaaaaa; font-size: medium">결제내역</span></a></li>
 		  </ul>
 	  </div>
 	  <!-- Tab panes -->
