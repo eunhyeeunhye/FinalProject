@@ -19,7 +19,7 @@
 <script>
 	function fnConfirm() {
 		if(confirm("확인한 정보로 대여하시겠습니까?") == true) {
-			window.opener.location = "/state";
+			window.opener.location = "/state?m_code=1";
 			document.mainform.submit();
 		}
 	}

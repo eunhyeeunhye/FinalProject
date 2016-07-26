@@ -2,6 +2,7 @@ package com.babjo.prjfinal.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.babjo.prjfinal.domain.BicycleVO;
 import com.babjo.prjfinal.domain.RentVO;
@@ -49,20 +51,36 @@ public class BicycleController {
 	}
 	
 	@RequestMapping(value = "/state")
-	public String state() {
+	public String state(@ModelAttribute RentVO vo, Model model) throws Exception{
+		//System.out.println(vo.getM_code());
+		
+		//List<RentVO> rvo = service.renting(vo);
+		//System.out.println(rvo.get(0).getM_name());
+		model.addAttribute("renting", service.renting(vo));
 		return "/bicycle/state";
 	}
 	
 	@RequestMapping(value = "/rentbicycle")
-	public String state(@ModelAttribute RentVO vo, Model model) throws Exception {
+	public String rentbicycle(@ModelAttribute RentVO vo, Model model) throws Exception {
 		//System.out.println(vo.getR_date());
 		//System.out.println(vo.getS_location());
 		//System.out.println(vo.getB_code());
+		
 		service.rentinfo(vo);
 		service.rentbicycle(vo.getB_code());
-		// model.addAttribute("renting", service.renting(vo));
 		
 		return "/bicycle/rentbicycle";
+	}
+	
+	@RequestMapping(value = "/turnin")
+	public String turnin(@ModelAttribute RentVO vo) throws Exception {
+		//System.out.println(vo.getM_code());
+		//System.out.println(vo.getB_code());
+		
+		service.turnin(vo.getM_code());
+		service.turninbicycle(vo.getB_code());
+		
+		return "/bicycle/search";
 	}
 	
 }

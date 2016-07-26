@@ -6,6 +6,7 @@
  -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,7 +29,9 @@ a {font-weight: bold;}
 
 <script>
 	function fnReturn() {
-		
+		if(confirm("반납하겠습니까?") == true) {
+			document.mainform.submit();
+		}
 	}
 </script>
 
@@ -92,39 +95,51 @@ a {font-weight: bold;}
 		<div class="col-sm-2" style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 20%">
 			<ul class="nav nav-pills nav-stacked">
 				<li role="presentation"><a href=""><span style="color: #aaaaaa; font-size: medium">대여소 찾기/대여</span></a></li>
-				<li role="presentation"><a href=""><span style="color: #aaaaaa; font-size: medium">화살표 자리</span></a></li>
+				<li role="presentation"><a href=""><span style="color: #aaaaaa; font-size: medium"><img src="resources/images/arrow.png" width="50" height="50"></span></a></li>
 				<li role="presentation" class="active"><a href=""><span style="font-size: medium">대여 완료</span></a></li>
 			</ul>
 		</div>
 		<div class="col-sm-6">
+		<c:forEach items="${renting }" var="rentVO">
 			<table class="table table-striped">
 				<tr>
 					<th>대여 시간</th>
-					<th>(대여시간)</th>
+					<th>${rentVO.r_date}</th>
 				</tr>
 				<tr>
 					<th>대여 장소</th>
-					<th>(), 스테이션 번호()</th>
+					<th>${rentVO.s_location }, 스테이션 번호 : ${rentVO.s_code}번</th>
 				</tr>
 				<tr>
 					<th>상세주소</th>
-					<th>(스테이션 도로명주소)</th>
+					<th>${rentVO.s_sub_location }</th>
 				</tr>
 				<tr>
 					<th>자전거 번호</th>
-					<th>(), 상태()</th>
+					<th>${rentVO.b_code }, 상태 : 
+					<c:choose>
+						<c:when test="${rentVO.r_state=='1'}">
+						대여가능
+						</c:when>
+					</c:choose>
+					</th>
 				<tr>
 					<th>대여자 명의</th>
-					<th>(홍길동)</th>
+					<th>${rentVO.m_name }</th>
 				</tr>
 				<tr>
-					<th>현재 이용시간</th>
-					<th>(지금시간-대여시간)</th>
+					<th>대여시간</th>
+					<th>${rentVO.r_date }</th>
 				</tr>
 			</table>
+			<form method="post" name="mainform" action="/turnin">
+				<input type="hidden" name="m_code" value="${rentVO.m_code}">
+				<input type="hidden" name="b_code" value="${rentVO.b_code}">
+			</form>
 			<div align="center">
 				<input type="button" value="(임시)반납하기" onclick="fnReturn()">
 			</div>
+			</c:forEach>
 		</div>
 		<!-- 중간영역 끝 -->
 
