@@ -128,8 +128,8 @@
 	  <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
 	    <li id="navtab1" role="presentation" class="active"><a id="tab1" href="#home" aria-controls="home" role="tab" data-toggle="tab">공지사항</a></li>
-	    <li id="navtab2" role="presentation"><a id="tab2" href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="color: #6DD66D">이용후기</a></li>
-	    <li id="navtab3" role="presentation"><a id="tab3" href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="color: #6DD66D">문의사항</a></li>
+	    <li id="navtab2" role="presentation"><a id="tab2" href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="color: #6DD66D">동호회</a></li>
+	    <li id="navtab3" role="presentation"><a id="tab3" href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="color: #6DD66D">FAQ</a></li>
 	  </ul>
 		<br/>
 	  <!-- Tab panes -->
