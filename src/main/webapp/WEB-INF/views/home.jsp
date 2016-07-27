@@ -143,15 +143,15 @@
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="profile">
 	    	<ul>
-	    		<li>첫번째 이용후기</li>
-	    		<li>두번째 이용후기</li>
+	    		<li>첫번째 동호회 글</li>
+	    		<li>두번째 동호회 글</li>
 	    		<li>...</li>
 	    	</ul>
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="messages">
 	    	<ul>
-	    		<li>첫번째 문의사항</li>
-	    		<li>두번째 문의사항</li>
+	    		<li>첫번째 FAQ</li>
+	    		<li>두번째 FAQ</li>
 	    		<li>...</li>
 	    	</ul>
 	    </div>
