@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.babjo.prjfinal.bicycleMapper">
+	
+	<select id="stationinfo" resultType="BicycleVO">
+		select * from tbl_bicycle 
+		where b_state=1 and s_code=#{s_code}
+	</select>
+	
+	<select id="rentinfo">
+		insert into tbl_rent(r_date, b_code, s_code, s_location, s_sub_location, m_code, m_name, r_state)
+		value(#{r_date}, #{b_code}, #{s_code}, #{s_location}, #{s_sub_location}, #{m_code}, #{m_name}, #{r_state})
+	</select>
+	
+	<select id="rentbicycle">
+		update tbl_bicycle set b_state=2
+		where b_code=#{b_code}
+	</select>
+	
+	<select id="renting" resultType="RentVO">
+		select * from tbl_rent 
+		where m_code=#{m_code} and r_state=1
+	</select>
+	
+	<select id="turnin">
+		update tbl_rent set r_state=2 
+		where m_code=#{m_code} and r_state=1
+	</select>
+	
+	<select id="turninbicycle">
+		update tbl_bicycle set b_state=1 where b_code=#{b_code}
+	</select>
+	
+	<!-- 
+	<select id="create">
+		insert into tbl_board(title, content, writer)
+		value(#{title}, #{content}, #{writer})
+	</select>
+	
+	<select id="read" resultType="BoardVO">
+		select * from tbl_board where bno=#{bno}
+	</select>
+	
+	<select id="update">
+		update tbl_board set title=#{title}, content=#{content}
+		where bno=#{bno}
+	</select>
+	
+	<select id="delete">
+		delete from tbl_board where bno=#{bno}
+	</select>
+	
+	<select id="listAll" resultType="BoardVO">
+		select * from tbl_board where bno>0
+		order by bno desc, regdate desc
+	</select>
+	 -->
+</mapper>

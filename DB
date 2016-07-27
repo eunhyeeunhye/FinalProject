@@ -1,0 +1,82 @@
+create database dbfinal;
+
+create table tbl_bicycle(
+	b_code int not null,
+	s_code int not null,
+	s_location varchar(20) not null,
+	s_sub_location varchar(50) not null,
+	b_state int not null,
+	primary key(b_code)
+);
+
+s_code마다 자전거 5대씩 배치 b_state 1=이용가능, 2=대여진행중, 3=대여중
+s_code = 1,2,3,4
+s_location = 대일빌딩, 우리은행, 대우조선해양, 을지로입구역 3번출구
+s_sub_location = 
+서울특별시 중구 남대문로 120
+서울특별시 중구 남대문로 118
+서울특별시 중구 다동
+서울특별시 중구 남대문로1가
+
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(1, 1, '대일빌딩', '서울특별시 중구 남대문로 120', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(2, 1, '대일빌딩', '서울특별시 중구 남대문로 120', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(3, 1, '대일빌딩', '서울특별시 중구 남대문로 120', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(4, 1, '대일빌딩', '서울특별시 중구 남대문로 120', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(5, 1, '대일빌딩', '서울특별시 중구 남대문로 120', 1);
+
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(6, 2, '우리은행', '서울특별시 중구 남대문로 118', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(7, 2, '우리은행', '서울특별시 중구 남대문로 118', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(8, 2, '우리은행', '서울특별시 중구 남대문로 118', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(9, 2, '우리은행', '서울특별시 중구 남대문로 118', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(10, 2, '우리은행', '서울특별시 중구 남대문로 118', 1);
+
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(11, 3,'대우조선해양', '서울특별시 중구 다동', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(12, 3, '대우조선해양', '서울특별시 중구 다동', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(13, 3, '대우조선해양', '서울특별시 중구 다동', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(14, 3, '대우조선해양', '서울특별시 중구 다동', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(15, 3, '대우조선해양', '서울특별시 중구 다동', 1);
+
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(16, 4, '을지로입구역 3번출구', '서울특별시 중구 남대문로1가', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(17, 4, '을지로입구역 3번출구', '서울특별시 중구 남대문로1가', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(18, 4, '을지로입구역 3번출구', '서울특별시 중구 남대문로1가', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(19, 4, '을지로입구역 3번출구', '서울특별시 중구 남대문로1가', 1);
+insert into tbl_bicycle(b_code, s_code, s_location, s_sub_location, b_state)
+value(20, 4, '을지로입구역 3번출구', '서울특별시 중구 남대문로1가', 1);
+
+
+
+
+
+
+
+create table tbl_rent(
+	r_code int not null auto_increment,
+	r_date varchar(20) not null,
+	b_code int not null,
+	s_code int not null,
+	s_location varchar(20) not null,
+	s_sub_location varchar(50) not null,
+	m_code int not null,
+	m_name varchar(50) not null,
+	r_state int not null,
+	primary key(r_code)
+);
