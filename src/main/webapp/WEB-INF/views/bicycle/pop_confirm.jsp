@@ -2,7 +2,7 @@
 	작성자 : 김정훈
 	작성일 : 2016.07.19
 	내용 : 대여확인 전 확인 팝업페이지
-	수정내역 : 
+	수정내역 : 2016.07.25 window.close기능이 너무 빨리 실행되 중간페이지 추가
  -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>

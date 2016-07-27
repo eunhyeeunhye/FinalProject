@@ -2,7 +2,7 @@
 	작성자 : 김정훈
 	작성일 : 2016.07.19
 	내용 : 대여상태 확인 페이지
-	수정내역 : 
+	수정내역 : 2016.07.25 자전거 반납기능 추가
  -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>

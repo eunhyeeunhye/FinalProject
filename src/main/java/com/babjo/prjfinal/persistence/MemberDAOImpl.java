@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.stereotype.Repository;
 
 import com.babjo.prjfinal.domain.MemberVO;
@@ -17,7 +18,7 @@ import com.babjo.prjfinal.domain.RentVO;
 public class MemberDAOImpl implements MemberDAO {
 	@Inject
 	private SqlSession sqlSession;
-	
+
 	private static final String NAMESPACE = "com.babjo.mappers.memberMapper";
 	
 	@Override

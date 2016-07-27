@@ -1,3 +1,9 @@
+/*
+ * 작성자 : 김정훈
+ * 작성일 : 2016.07.24
+ * 내용 : 자전거 대여/반납관련 DAO
+ * 수정내역 : 
+ */
 package com.babjo.prjfinal.persistence;
 
 import java.util.List;

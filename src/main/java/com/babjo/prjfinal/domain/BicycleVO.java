@@ -1,3 +1,9 @@
+/*
+ * 작성자 : 김정훈
+ * 작성일 : 2016.07.24
+ * 내용 : 대여소와 자전거 VO
+ * 수정내역 : 
+ */
 package com.babjo.prjfinal.domain;
 
 public class BicycleVO {
