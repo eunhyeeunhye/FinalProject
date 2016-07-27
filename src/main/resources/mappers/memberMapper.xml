@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.babjo.mappers.memberMapper">
+	<select id="doLogin" resultType="MemberVO">
+		select * from tbl_member where m_id = #{m_id} and m_pw = #{m_pw}
+	</select>
+	
+	<insert id="doSignup" parameterType="MemberVO">
+		insert into tbl_member(m_id, m_pw, m_name) values(#{m_id}, #{m_pw}, #{m_name})
+	</insert>
+	
+	<select id="idCheck" parameterType="String" resultType="String">
+		select m_id from tbl_member where m_id = #{m_id}
+	</select>
+	
+	<update id="doUpdate" parameterType="MemberVO">
+		update tbl_member set m_name = #{m_name}, m_pw = #{m_pw} where m_code = #{m_code}
+	</update>
+	
+	<select id="useList" parameterType="int" resultType="RentVO">
+		select * from tbl_rent where m_code = #{m_code} order by r_code desc
+	</select>
+	
+	<select id="payList" parameterType="int" resultType="PaymentVO">
+		select * from tbl_payment where m_code = #{m_code} order by p_code desc
+	</select>
+</mapper>
