@@ -259,7 +259,7 @@ a {font-weight: bold;}
 	<!-- 하단바 시작 -->
 
 	<!-- 하단바 끝 -->
-	<!-- 로그아웃 모달창 -->
+<!-- 로그아웃 모달창 -->
 <div id="logoutmodal" class="modal bs-example-modal-sm" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog modal-sm">
     <div class="modal-content">
@@ -279,8 +279,8 @@ a {font-weight: bold;}
 </div><!-- /.modal -->
 	
 	<!-- BootStrap v3.3.2 -->
-	<script src="../../../../js/jquery-2.2.3.min.js"></script>
-	<script src="../../../../js/bootstrap.min.js"></script>
+	<script src="<c:url value="/resources/js/jquery-2.2.4.min.js"></c:url>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
 </body>
 <script>
 	$(document).ready(function() {

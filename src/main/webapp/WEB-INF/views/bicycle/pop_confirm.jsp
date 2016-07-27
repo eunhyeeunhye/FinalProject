@@ -99,7 +99,7 @@
 	</div>
 
 	<!-- BootStrap v3.3.2 -->
-	<script src="../../../../js/jquery-2.2.3.min.js"></script>
-	<script src="../../../../js/bootstrap.min.js"></script>
+	<script src="<c:url value="/resources/js/jquery-2.2.4.min.js"></c:url>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
 </body>
 </html>
