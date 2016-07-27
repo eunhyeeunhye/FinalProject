@@ -53,7 +53,7 @@
 		        <li><a href="#">서비스안내</a></li>
 		        <li><a href="#">요금안내</a></li>
 		        <li><a href="#">고객센터</a></li>
-		        <li><a href="#" style="color: #6DD66D">Station찾기/예약</a></li>
+		        <li><a href="/search" style="color: #6DD66D">Station찾기/예약</a></li>
 		        <c:choose>
 			        <c:when test="${member == null}">
 			        	<li><a href="/member/login" style="color: #6DD66D">마이페이지</a></li>

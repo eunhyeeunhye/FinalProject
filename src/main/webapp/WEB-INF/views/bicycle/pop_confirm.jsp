@@ -19,7 +19,7 @@
 <script>
 	function fnConfirm() {
 		if(confirm("확인한 정보로 대여하시겠습니까?") == true) {
-			window.opener.location = "/state?m_code=1";
+			window.opener.location = "/state?m_code=${member.m_code}";
 			document.mainform.submit();
 		}
 	}
@@ -59,7 +59,7 @@
 					
 				<tr>
 					<th>대여자 명의
-					<th>홍길동</th>
+					<th>${member.m_name }</th>
 				</tr>
 			</table>
 			</c:forEach>
@@ -88,8 +88,8 @@
 					<input type="hidden" name="s_code" value="${bicycleVO.s_code }">
 					<input type="hidden" name="s_location" value="${bicycleVO.s_location }">
 					<input type="hidden" name="s_sub_location" value="${bicycleVO.s_sub_location }">
-					<input type="hidden" name="m_code" value="1">
-					<input type="hidden" name="m_name" value="홍길동">
+					<input type="hidden" name="m_code" value="${member.m_code }">
+					<input type="hidden" name="m_name" value="${member.m_name }">
 					<input type="hidden" name="r_state" value="1">
 					</c:forEach>
 					<input type="button" value="취소" onclick="fnClose()">

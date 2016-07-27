@@ -127,10 +127,6 @@ a {font-weight: bold;}
 					<th>대여자 명의</th>
 					<th>${rentVO.m_name }</th>
 				</tr>
-				<tr>
-					<th>대여시간</th>
-					<th>${rentVO.r_date }</th>
-				</tr>
 			</table>
 			<form method="post" name="mainform" action="/turnin">
 				<input type="hidden" name="m_code" value="${rentVO.m_code}">

@@ -14,28 +14,28 @@
 		where b_state=1 and s_code=#{s_code}
 	</select>
 	
-	<select id="rentinfo">
+	<insert id="rentinfo">
 		insert into tbl_rent(r_date, b_code, s_code, s_location, s_sub_location, m_code, m_name, r_state)
 		value(#{r_date}, #{b_code}, #{s_code}, #{s_location}, #{s_sub_location}, #{m_code}, #{m_name}, #{r_state})
-	</select>
+	</insert>
 	
-	<select id="rentbicycle">
+	<update id="rentbicycle">
 		update tbl_bicycle set b_state=2
 		where b_code=#{b_code}
-	</select>
+	</update>
 	
 	<select id="renting" resultType="RentVO">
 		select * from tbl_rent 
 		where m_code=#{m_code} and r_state=1
 	</select>
 	
-	<select id="turnin">
+	<update id="turnin">
 		update tbl_rent set r_state=2 
 		where m_code=#{m_code} and r_state=1
-	</select>
+	</update>
 	
-	<select id="turninbicycle">
+	<update id="turninbicycle">
 		update tbl_bicycle set b_state=1 where b_code=#{b_code}
-	</select>
+	</update>
 	
 </mapper>
