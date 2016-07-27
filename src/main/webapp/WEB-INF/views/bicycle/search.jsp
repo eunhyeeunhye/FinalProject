@@ -65,7 +65,7 @@ a {font-weight: bold;}
 			<div id="nav" class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header" style="margin-right: 80px;">
-					<a class="navbar-brand" href="#" style="color: #6DD66D">Green Cycle</a>
+					<a class="navbar-brand" href="/" style="color: #6DD66D">Green Cycle</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->

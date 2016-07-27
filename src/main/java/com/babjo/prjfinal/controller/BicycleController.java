@@ -28,7 +28,7 @@ public class BicycleController {
 	@Inject
 	private BicycleService service;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search() {
 		
 		return "/bicycle/search";
