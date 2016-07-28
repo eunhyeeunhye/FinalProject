@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rkskekabc.mappers.RequestMapper">
+	<insert id="writeRequest">
+		insert into tbl_request(m_code, title, content)
+			values(#{m_code}, #{title}, #{content})
+	</insert>
+	
+	<select id="readRequest" resultType="RequestVO">
+		select * from tbl_request where r_code=#{r_code}
+	</select>
+	
+	<select id="requestList" resultType="RequestVO">
+		select * from tbl_request order by r_code desc
+	</select>
+	
+	<update id="writeAnswer">
+		update tbl_request set content=#{content}, status='답변완료' where r_code=#{r_code}
+	</update>
+</mapper>

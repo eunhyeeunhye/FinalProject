@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rkskekabc.mappers.NoticeMapper">
+	<insert id="writeNotice">
+		insert into tbl_notice(title, content) values(#{title}, #{content})
+	</insert>
+	
+	<select id="getNoticeList" resultType="NoticeVO">
+		select * from tbl_notice order by n_code desc
+	</select>
+	
+	<select id="readNotice" resultType="NoticeVO">
+		select * from tbl_notice where n_code=#{n_code}
+	</select>
+	
+	<delete id="deleteNotice">
+		delete from tbl_notice where n_code=#{n_code}
+	</delete>
+</mapper>
