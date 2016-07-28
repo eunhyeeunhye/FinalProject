@@ -94,17 +94,17 @@
 		  		<td>번호</td><td>제목</td><td>작성자</td><td>작성일</td>
 		  	</tr>
 		  	<c:if test="${pageVO.numPerPage*pageVO.page-1 >= fn:length(noticeList)}">
-		  		<c:set var="finalData" value="${fn:length(noticeList)-1}"/>
+		  		<c:set var="finalData" value="${fn:length(noticeList)}"/>
 		  	</c:if>
 		  	<c:if test="${pageVO.numPerPage*pageVO.page-1 < fn:length(noticeList)}">
-		  		<c:set var="finalData" value="${pageVO.numPerPage*pageVO.page-1}"/>
+		  		<c:set var="finalData" value="${pageVO.numPerPage*pageVO.page}"/>
 		  	</c:if>
-		  	<c:forEach var="i" begin="${pageVO.startPerPage-1}" end="${finalData}">
+		  	<c:forEach var="i" begin="${pageVO.startPerPage}" end="${finalData}">
 		  		<tr>
-		  			<td>${noticeList[i].n_code}</td>
-		  			<td><a href="noticeRead?n_code=${noticeList[i].n_code}">${noticeList[i].title}</a></td>
-		  			<td>${noticeList[i].writer}</td>
-		  			<td>${noticeList[i].regdate}</td>
+		  			<td>${noticeList[i-1].n_code}</td>
+		  			<td><a href="noticeRead?n_code=${noticeList[i-1].n_code}">${noticeList[i-1].title}</a></td>
+		  			<td>${noticeList[i-1].writer}</td>
+		  			<td>${noticeList[i-1].regdate}</td>
 		  		</tr>
 		  	</c:forEach>
 		  	<tr>

@@ -96,22 +96,22 @@
 		  		<td>번호</td><td>제목</td><td>날짜</td><td>상태</td>
 		  	</tr>
 		  	<c:if test="${pageVO.numPerPage*pageVO.page-1 >= fn:length(requestList)}">
-		  		<c:set var="finalData" value="${fn:length(requestList)-1}"/>
+		  		<c:set var="finalData" value="${fn:length(requestList)}"/>
 		  	</c:if>
 		  	<c:if test="${pageVO.numPerPage*pageVO.page-1 < fn:length(requestList)}">
-		  		<c:set var="finalData" value="${pageVO.numPerPage*pageVO.page-1}"/>
+		  		<c:set var="finalData" value="${pageVO.numPerPage*pageVO.page}"/>
 		  	</c:if>
 		  	<!-- 
 		  	<tr>
 		  		<td align="center" colspan="4">문의내역이 없습니다.</td>
 		  	</tr>
 		  	-->
-		  	<c:forEach var="i" begin="${pageVO.startPerPage-1}" end="${finalData}">
+		  	<c:forEach var="i" begin="${pageVO.startPerPage}" end="${finalData}">
 		  		<tr>
-		  			<td>${requestList[i].r_code}</td>
-		  			<td><a href="requestRead?r_code=${requestList[i].r_code}">${requestList[i].title}</a></td>
-		  			<td>${requestList[i].regdate}</td>
-		  			<td>${requestList[i].status}</td>
+		  			<td>${requestList[i-1].r_code}</td>
+		  			<td><a href="requestRead?r_code=${requestList[i-1].r_code}">${requestList[i-1].title}</a></td>
+		  			<td>${requestList[i-1].regdate}</td>
+		  			<td>${requestList[i-1].status}</td>
 		  		</tr>
 		  	</c:forEach>
 		  	<tr>

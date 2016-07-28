@@ -49,8 +49,8 @@
 		      <ul class="nav navbar-nav">
 		        <li><a href="#">서비스안내</a></li>
 		        <li><a href="#">요금안내</a></li>
-		        <li><a href="#">고객센터</a></li>
-		        <li><a href="#" style="color: #6DD66D">Station찾기/예약</a></li>
+		        <li><a href="/service/notice?page=1">고객센터</a></li>
+		        <li><a href="/search" style="color: #6DD66D">Station찾기/예약</a></li>
 		        <li><a href="/member/mypage" style="color: #6DD66D">마이페이지</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">

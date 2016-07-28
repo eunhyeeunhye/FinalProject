@@ -26,11 +26,17 @@ a {font-weight: bold;}
 /* 상단바 관련 style 시작 */
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{background-color: #eeeeee; color: #5cb85c;}
 /* 상단바 관련 style 끝 */
+
+html,body{height:100%}
+body{margin:0}
+#wrap{min-height:100%}
+#footer{margin-top:-1em;height:1em}
 </style>
 
 <script>
 	function fnReturn() {
 		if(confirm("반납하겠습니까?") == true) {
+			alert("!");
 			document.mainform.submit();
 		}
 	}
@@ -57,7 +63,7 @@ a {font-weight: bold;}
 					<ul class="nav navbar-nav">
 						<li><a href="#">서비스안내</a></li>
 						<li><a href="#">요금안내</a></li>
-						<li><a href="#">고객센터</a></li>
+						<li><a href="/service/notice?page=1">고객센터</a></li>
 						<li><a href="/search" style="color: #6DD66D">Station찾기/예약</a></li>
 						<li><a href="/member/mypage" style="color: #6DD66D">마이페이지</a></li>
 					</ul>
@@ -78,6 +84,7 @@ a {font-weight: bold;}
 	<!-- 상단바 종료 -->
 
 	<!-- 메뉴 선택 이름 바 시작 -->
+	<div id="wrap">
 	<div class="row" style="margin-bottom: 1%">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
@@ -129,12 +136,12 @@ a {font-weight: bold;}
 					<th>${rentVO.m_name }</th>
 				</tr>
 			</table>
-			<form method="post" name="mainform" action="/turnin">
-				<input type="hidden" name="m_code" value="${rentVO.m_code}">
-				<input type="hidden" name="b_code" value="${rentVO.b_code}">
+			<form method="post" id="mainform" action="/turnin">
+				<input type="hidden" name="m_code" value="${rentVO.m_code}" />
+				<input type="hidden" name="b_code" value="${rentVO.b_code}" />
 			</form>
 			<div align="center">
-				<input type="button" value="(임시)반납하기" onclick="fnReturn()">
+				<input type="button" value="(임시)반납하기" onclick="fnReturn()" />
 			</div>
 			</c:forEach>
 		</div>
@@ -144,9 +151,16 @@ a {font-weight: bold;}
 		<div class="col-md-2"></div>
 		<!-- 우측 여백 끝 -->
 	</div>
-
+	</div>
 	<!-- 하단바 시작 -->
-
+	<div id="footer" class="row">
+		<div class="col-md-12" style="height:150px; background-color: #424242; margin-top: 10px">
+			<footer style="margin-left: 42%; margin-top: 2%">
+			  <p><a href="http://rkskekabc.cafe24.com/prjSemi/main.jsp">Armadillo</a></p>
+			  <p>&copy; Copyright 2016 All rights reserved by BABJO.</p>
+			</footer>
+		</div>
+	</div>
 	<!-- 하단바 끝 -->
 <!-- 로그아웃 모달창 -->	
 <div id="logoutmodal" class="modal bs-example-modal-sm" tabindex="-1" role="dialog">
@@ -173,18 +187,10 @@ a {font-weight: bold;}
 </body>
 <script>
 	$(document).ready(function() {
-		$("#login").on("click", function() {
-			$(location).attr('href', "/member/login");
-		});
-
 		$("#logoutconfirm").on("click", function() {
 			$(location).attr('href', "/member/logout");
 		});
-		
-		$("#signup").on("click", function() {
-			$(location).attr('href', "/member/signup");
-		});
-		
+
 		$("#mypage").on("click", function() {
 			$(location).attr('href', "/member/mypage");
 		});
