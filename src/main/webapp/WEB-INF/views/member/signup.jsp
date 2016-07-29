@@ -26,41 +26,7 @@
 	}
 </style>
 <body>
-<div class="row">
-	<div class="col-md-12" style="height:10px; background-color: #6DD66D"></div>
-</div>
-<div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-		<nav class="navbar navbar-default" style="border-color: white;">
-		  <div id="navbar" class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header col-md-2" style="margin-right: 40px;">
-		      <a class="navbar-brand" href="/"><img alt="Brand" src="<c:url value="/resources/images/logo.png"></c:url>" style="width: 100%; height: auto; margin-top: 20px"></img></a>
-		    </div>
-		
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div id="nav" class="collapse navbar-collapse">
-		      <ul class="nav navbar-nav">
-		        <li><a href="#">서비스안내</a></li>
-		        <li><a href="#">요금안내</a></li>
-		        <li><a href="/service/notice?page=1">고객센터</a></li>
-		        <li><a href="/search" style="color: #6DD66D">Station찾기/예약</a></li>
-		        <li><a href="/member/login" style="color: #6DD66D">마이페이지</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		      	<li><button id="signup" type="button" class="btn btn-default btn-xs" style="margin-top: 15px">회원가입</button>&nbsp;</li>
-		        <li><button id="login" type="button" class="btn btn-default btn-xs" style="margin-top: 15px">로그인</button></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-	</div>
-	<div class="col-md-2"></div>
-</div>
-<div class="row">
-	<div class="col-md-12" style="height:1px; background-color: #D8D8D8"></div>
-</div>
+<%@include file="../include/header3.jsp" %>
 <div id="wrap">
 <div class="row" style="margin-top: 10px">
 	<div class="col-md-2"></div>
@@ -111,14 +77,7 @@
 	<div class="col-md-4"></div>
 </div>
 </div>
-<div id="footer" class="row">
-	<div class="col-md-12" style="height:150px; background-color: #424242; margin-top: 10px">
-		<footer style="margin-left: 42%; margin-top: 2%">
-		  <p><a href="http://rkskekabc.cafe24.com/prjSemi/main.jsp">Armadillo</a></p>
-		  <p>&copy; Copyright 2016 All rights reserved by BABJO.</p>
-		</footer>
-	</div>
-</div>
+<%@include file="../include/footer.jsp" %>
 </body>
 <script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
 <script>

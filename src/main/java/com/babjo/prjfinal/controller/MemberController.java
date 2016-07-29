@@ -32,7 +32,7 @@ public class MemberController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpServletRequest req){
 		req.getSession().invalidate();
-		return "home";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/doLogin", method=RequestMethod.POST)
@@ -50,7 +50,7 @@ public class MemberController {
 			return "member/login";
 		}
 		
-		return "home";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)

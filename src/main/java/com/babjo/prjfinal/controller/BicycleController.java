@@ -35,8 +35,8 @@ public class BicycleController {
 	private BicycleService service;
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String search() {
-		
+	public String search(@ModelAttribute RentVO vo, Model model) throws Exception {
+		model.addAttribute("rentVO", service.renting(vo));
 		return "/bicycle/search";
 	}
 	
@@ -79,14 +79,14 @@ public class BicycleController {
 	}
 	
 	@RequestMapping(value = "/turnin")
-	public String turnin(@ModelAttribute RentVO vo) throws Exception {
+	public String turnin(int m_code, int b_code) throws Exception {
 		//System.out.println(vo.getM_code());
 		//System.out.println(vo.getB_code());
 		
-		service.turnin(vo.getM_code());
-		service.turninbicycle(vo.getB_code());
+		service.turnin(m_code);
+		service.turninbicycle(b_code);
 		
-		return "/bicycle/search";
+		return "redirect:/member/uselist?m_code=" + m_code;
 	}
 	
 }

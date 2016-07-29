@@ -22,7 +22,7 @@ public class BicycleServiceImpl implements BicycleService {
 	
 	@Inject
 	private BicycleDAO dao;
-
+	
 	@Override
 	public List<BicycleVO> bicycleInfo(BicycleVO vo) throws Exception {
 		//System.out.println(vo.getS_code());
