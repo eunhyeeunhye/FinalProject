@@ -76,7 +76,7 @@
 </div>
 <div class="row">
 	  <div class="col-md-2"></div>
-	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 30%">
+	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 25%">
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
 		    <li role="presentation"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="color: #aaaaaa; font-size: medium">내 정보</span></a></li>
 		    <li role="presentation" class="active"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="font-size: medium">이용내역</span></a></li>
@@ -89,7 +89,7 @@
 		  	<tr>
 		  		<th>번호</th><th>이용날짜</th><th>대여 station</th><th>도로명 주소</th><th>자전거 번호</th>
 		  	</tr>
-		  	<c:forEach begin="0" end="20" var="list" items="${useList}" varStatus="status">
+		  	<c:forEach begin="0" end="14" var="list" items="${useList}" varStatus="status">
 		  		<tr>
 			  		<td>${status.count}</td><td>${list.r_date}</td><td>${list.s_location}</td><td>${list.s_sub_location}</td><td>${list.b_code}</td>
 			  	</tr>

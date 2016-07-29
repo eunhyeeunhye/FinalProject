@@ -21,8 +21,13 @@ public class RequestDAOImpl implements RequestDAO {
 	}
 
 	@Override
-	public List<RequestVO> requestList() throws Exception {
-		return session.selectList(namespace + ".requestList");
+	public List<RequestVO> requestList(int m_code) throws Exception {
+		return session.selectList(namespace + ".requestList", m_code);
+	}
+
+	@Override
+	public List<RequestVO> adminRequestList() throws Exception {
+		return session.selectList(namespace + ".adminRequestList");
 	}
 
 	@Override

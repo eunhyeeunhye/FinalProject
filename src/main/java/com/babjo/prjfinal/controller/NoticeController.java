@@ -37,18 +37,30 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("request")
+	public String requestHandler(Integer page, Integer m_code, Model model) throws Exception{
+		if(page == null){
+			page = 1;
+		}
+		if(m_code == null){
+			return "member/login";
+		}
+		PagingVO pageVO = new PagingVO(rService.requestList(m_code).size(), page);
+		model.addAttribute("requestList", rService.requestList(m_code));
+		model.addAttribute("pageVO", pageVO);
+		
+		return "service/request";
+	}
+	
+	@RequestMapping("adminRequest")
 	public String requestHandler(Integer page, Model model) throws Exception{
-		if(rService.requestList() == null){
-			
+		if(page == null){
+			page = 1;
 		}
-		else{
-			if(page == null){
-				page = 1;
-			}
-			PagingVO pageVO = new PagingVO(rService.requestList().size(), page);
-			model.addAttribute("requestList", rService.requestList());
-			model.addAttribute("pageVO", pageVO);
-		}
+		
+		PagingVO pageVO = new PagingVO(rService.adminRequestList().size(), page);
+		model.addAttribute("requestList", rService.adminRequestList());
+		model.addAttribute("pageVO", pageVO);
+		
 		return "service/request";
 	}
 	
@@ -64,9 +76,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("requestComplete")
-	public String requestCompleteHandler(RequestVO vo) throws Exception{
+	public String requestCompleteHandler(int m_code, RequestVO vo) throws Exception{
 		rService.writeRequest(vo);
-		return "redirect:/service/request";
+		return "redirect:/service/request?m_code=" + m_code;
 	}
 	
 	@RequestMapping("requestAnswer")
@@ -78,7 +90,7 @@ public class NoticeController {
 	@RequestMapping("requestAnswerComplete")
 	public String requestAnswerCompleteHandler(RequestVO vo) throws Exception{
 		rService.writeAnswer(vo);
-		return "redirect:/service/request";
+		return "redirect:/service/adminRequest";
 	}
 	
 	@RequestMapping("noticeRead")

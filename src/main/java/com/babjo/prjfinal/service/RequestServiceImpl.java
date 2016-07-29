@@ -20,9 +20,15 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public List<RequestVO> requestList() throws Exception {
+	public List<RequestVO> requestList(int m_code) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.requestList();
+		return dao.requestList(m_code);
+	}
+
+	@Override
+	public List<RequestVO> adminRequestList() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.adminRequestList();
 	}
 
 	@Override

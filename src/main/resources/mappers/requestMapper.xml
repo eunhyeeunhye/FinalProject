@@ -3,8 +3,8 @@
 
 <mapper namespace="com.rkskekabc.mappers.RequestMapper">
 	<insert id="writeRequest">
-		insert into tbl_request(m_code, title, content)
-			values(#{m_code}, #{title}, #{content})
+		insert into tbl_request(m_code, m_id, title, content)
+			values(#{m_code}, #{m_id}, #{title}, #{content})
 	</insert>
 	
 	<select id="readRequest" resultType="RequestVO">
@@ -12,7 +12,11 @@
 	</select>
 	
 	<select id="requestList" resultType="RequestVO">
-		select * from tbl_request order by r_code desc
+		select * from tbl_request where m_code=#{m_code} order by r_code desc
+	</select>
+	
+	<select id="adminRequestList" resultType="RequestVO">
+		select * from tbl_request order by status desc;
 	</select>
 	
 	<update id="writeAnswer">

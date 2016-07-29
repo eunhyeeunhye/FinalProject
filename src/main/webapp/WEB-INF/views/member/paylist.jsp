@@ -76,7 +76,7 @@
 </div>
 <div class="row">
 	  <div class="col-md-2"></div>
-	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 30%">
+	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 25%">
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
 		    <li role="presentation"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="color: #aaaaaa; font-size: medium">내 정보</span></a></li>
 		    <li role="presentation"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역</span></a></li>
@@ -89,7 +89,7 @@
 		  	<tr>
 		  		<th>번호</th><th>구매상품</th><th>결제날짜</th><th>결제금액</th><th>결제수단</th><th>마일리지</th>
 		  	</tr>
-		  	<c:forEach begin="0" end="0" var="list" items="${payList}" varStatus="status">
+		  	<c:forEach begin="0" end="14" var="list" items="${payList}" varStatus="status">
 		  		<tr>
 			  		<td>${status.count}</td><td>30일권</td><td>${list.payment_date}</td><td>${list.amount}원</td><td>${list.payment_means}</td><td>${list.amount/20}캐시</td>
 			  	</tr>

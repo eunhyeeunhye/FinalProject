@@ -3,6 +3,7 @@ package com.babjo.prjfinal.domain;
 public class RequestVO {
 	private int m_code;
 	private int r_code;
+	private String m_id;
 	private String title;
 	private String content;
 	private String regdate;
@@ -58,7 +59,16 @@ public class RequestVO {
 	public void setR_code(int r_code) {
 		this.r_code = r_code;
 	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
 	public String getRegdate() {
 		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 }

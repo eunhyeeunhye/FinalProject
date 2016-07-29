@@ -76,7 +76,7 @@
 </div>
 <div class="row">
 	  <div class="col-md-2"></div>
-	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 30%">
+	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 25%">
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
 		    <li role="presentation" class="active"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="font-size: medium">내 정보</span></a></li>
 		    <li role="presentation"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역</span></a></li>
@@ -92,7 +92,7 @@
 			<div id="m_name_form" class="form-group">
 				<label for="m_name" class="col-md-3 control-label">이름</label>
 				<div class="col-md-7">
-					<input type="text" id="m_name" name="m_name" class="form-control" style="width: 100%" placeholder="이름" value="${member.m_name}"/>
+					<input type="text" id="m_name" name="m_name" class="form-control" style="width: 100%" placeholder="변경할 이름" value="${member.m_name}"/>
 				</div>
 				<span class="col-md-2"></span>
 			</div>
@@ -135,8 +135,23 @@
 			</div>
 		</form>
 		<br/><br/>
-		<h2 style="color: #BDBDBD;">동아리정보</h2>
 	  	<hr/>
+	  	<div class="panel panel-success">
+	  		<div class="panel-heading">
+				<h3 class="panel-title">내가 가입한 동호회</h3>
+			</div>
+			<table class="table">
+				<tr>
+					<th>번호</th><th>동호회 이름</th><th>탈퇴하기</th>
+				</tr>
+				<tr>
+					<td>1</td><td><a href="#">안녕</a></td><td><a href="#">탈퇴하기</a></td>
+				</tr>
+				<tr>
+					<td>2</td><td><a href="#">칭구들</a></td><td><a href="#">탈퇴하기</a></td>
+				</tr>
+			</table>
+	  	</div>
 	  </div>
 	  <div class="col-md-4"></div>
   </div>
