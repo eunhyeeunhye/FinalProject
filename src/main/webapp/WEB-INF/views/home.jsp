@@ -2,7 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" isELIgnored="false"%>
 <html>
 <head>
-	<title>Home</title>
+	<title>GreenCycle - Home</title>
 </head>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
 <script src="<c:url value="/resources/js/jquery-2.2.4.min.js"></c:url>"></script>
@@ -135,11 +135,16 @@
 	  <!-- Tab panes -->
 	  <div class="tab-content">
 	    <div role="tabpanel" class="tab-pane active" id="home">
-	    	<ul>
-	    		<li>첫번째 공지사항</li>
-	    		<li>두번째 공지사항</li>
-	    		<li>...</li>
-	    	</ul>
+	    	<table class="table table-hover" style="font-size: small">
+	    		<tr>
+	    			<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
+	 			</tr>
+	 			<c:forEach begin="0" end="3" items="${noticeList}" var="list">
+		 			<tr>
+		 				<td>${list.n_code}</td><td><a href="service/noticeRead?n_code=${list.n_code}">${list.title}</a></td><td>${list.writer}</td><td>${list.regdate}</td>
+		 			</tr>
+	 			</c:forEach>
+	    	</table>
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="profile">
 	    	<ul>

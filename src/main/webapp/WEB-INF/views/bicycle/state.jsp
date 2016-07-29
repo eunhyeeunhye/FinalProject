@@ -36,7 +36,6 @@ body{margin:0}
 <script>
 	function fnReturn() {
 		if(confirm("반납하겠습니까?") == true) {
-			alert("!");
 			document.mainform.submit();
 		}
 	}
@@ -102,9 +101,9 @@ body{margin:0}
 		<!-- 중간영역 시작 -->
 		<div class="col-sm-2" style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 20%">
 			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation"><a href=""><span style="color: #aaaaaa; font-size: medium">대여소 찾기/대여</span></a></li>
-				<li role="presentation"><a href=""><span style="color: #aaaaaa; font-size: medium"><img src="resources/images/arrow.png" width="50" height="50"></span></a></li>
-				<li role="presentation" class="active"><a href=""><span style="font-size: medium">대여 완료</span></a></li>
+				<li role="presentation"><a href="#"><span style="color: #aaaaaa; font-size: medium">대여소 찾기/대여</span></a></li>
+				<li role="presentation"><a href="#"><span style="color: #aaaaaa; font-size: medium"><img src="resources/images/arrow.png" width="50" height="50"></span></a></li>
+				<li role="presentation" class="active"><a href="#"><span style="font-size: medium">대여 완료</span></a></li>
 			</ul>
 		</div>
 		<div class="col-sm-6">

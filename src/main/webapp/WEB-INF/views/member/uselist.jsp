@@ -89,7 +89,7 @@
 		  	<tr>
 		  		<th>번호</th><th>이용날짜</th><th>대여 station</th><th>도로명 주소</th><th>자전거 번호</th>
 		  	</tr>
-		  	<c:forEach begin="0" end="30" var="list" items="${useList}" varStatus="status">
+		  	<c:forEach begin="0" end="20" var="list" items="${useList}" varStatus="status">
 		  		<tr>
 			  		<td>${status.count}</td><td>${list.r_date}</td><td>${list.s_location}</td><td>${list.s_sub_location}</td><td>${list.b_code}</td>
 			  	</tr>

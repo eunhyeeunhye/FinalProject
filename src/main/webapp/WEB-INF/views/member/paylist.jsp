@@ -89,7 +89,7 @@
 		  	<tr>
 		  		<th>번호</th><th>구매상품</th><th>결제날짜</th><th>결제금액</th><th>결제수단</th><th>마일리지</th>
 		  	</tr>
-		  	<c:forEach begin="0" end="30" var="list" items="${payList}" varStatus="status">
+		  	<c:forEach begin="0" end="0" var="list" items="${payList}" varStatus="status">
 		  		<tr>
 			  		<td>${status.count}</td><td>30일권</td><td>${list.payment_date}</td><td>${list.amount}원</td><td>${list.payment_means}</td><td>${list.amount/20}캐시</td>
 			  	</tr>

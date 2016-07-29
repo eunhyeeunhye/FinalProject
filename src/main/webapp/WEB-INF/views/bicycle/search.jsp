@@ -152,82 +152,155 @@ body{margin:0}
 				};
 
 				var map = new daum.maps.Map(container, options); // make map
-
-				/* 마커 위치 */
-				var positions = [
-						{
-							content : '<div class="wrap">'
-									+ '    <div class="info">'
-									+ '        <div class="title">'
-									+ '            대일빌딩'
-									+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
-									+ '        </div>'
-									+ '        <div class="body">'
-									+ '            <div class="img">'
-									+ '                <img src="resources/images/station.jpg" width="73" height="70">'
-									+ '           </div>'
-									+ '            <div class="desc">'
-									+ '                <div class="ellipsis">서울특별시 중구 남대문로 120</div>'
-									+ '                <div><a href="javascript:fnConfirm(1)">예약하기</a></div>'
-									+ '            </div>' + '        </div>'
-									+ '    </div>' + '</div>',
-							latlng : new daum.maps.LatLng(37.567961, 126.983064)
-						},
-						{
-							content : '<div class="wrap">'
-									+ '    <div class="info">'
-									+ '        <div class="title">'
-									+ '            우리은행'
-									+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
-									+ '        </div>'
-									+ '        <div class="body">'
-									+ '            <div class="img">'
-									+ '                <img src="resources/images/station.jpg" width="73" height="70">'
-									+ '           </div>'
-									+ '            <div class="desc">'
-									+ '                <div class="ellipsis">서울특별시 중구 남대문로 118</div>'
-									+ '                <div><a href="javascript:fnConfirm(2)">예약하기</a></div>'
-									+ '            </div>' + '        </div>'
-									+ '    </div>' + '</div>',
-							latlng : new daum.maps.LatLng(37.567723, 126.98306)
-						},
-						{
-							content : '<div class="wrap">'
-									+ '    <div class="info">'
-									+ '        <div class="title">'
-									+ '            대우조선해양'
-									+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
-									+ '        </div>'
-									+ '        <div class="body">'
-									+ '            <div class="img">'
-									+ '                <img src="resources/images/station.jpg" width="73" height="70">'
-									+ '           </div>'
-									+ '            <div class="desc">'
-									+ '                <div class="ellipsis">서울특별시 중구 다동</div>'
-									+ '                <div><a href="javascript:fnConfirm(3)">예약하기</a></div>'
-									+ '            </div>' + '        </div>'
-									+ '    </div>' + '</div>',
-							latlng : new daum.maps.LatLng(37.568407, 126.98229)
-						},
-						{
-							content : '<div class="wrap">'
-									+ '    <div class="info">'
-									+ '        <div class="title">'
-									+ '            을지로입구역 3번출구'
-									+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
-									+ '        </div>'
-									+ '        <div class="body">'
-									+ '            <div class="img">'
-									+ '                <img src="resources/images/station.jpg" width="73" height="70">'
-									+ '           </div>'
-									+ '            <div class="desc">'
-									+ '                <div class="ellipsis">서울특별시 중구 남대문로1가</div>'
-									+ '                <div><a href="javascript:fnConfirm(4)">예약하기</a></div>'
-									+ '            </div>' + '        </div>'
-									+ '    </div>' + '</div>',
-							latlng : new daum.maps.LatLng(37.5665246, 126.98291)
-						} ];
-				
+				var m_code = "<c:out value="${member.m_code}"/>"
+				if(m_code == 0){
+					/* 마커 위치 */
+					var positions = [
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            대일빌딩'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 남대문로 120</div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.567961, 126.983064)
+							},
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            우리은행'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 남대문로 118</div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.567723, 126.98306)
+							},
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            대우조선해양'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 다동</div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.568407, 126.98229)
+							},
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            을지로입구역 3번출구'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 남대문로1가</div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.5665246, 126.98291)
+							} ];
+				}
+				else{
+					/* 마커 위치 */
+					var positions = [
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            대일빌딩'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 남대문로 120</div>'
+										+ '                <div><a href="javascript:fnConfirm(1)">예약하기</a></div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.567961, 126.983064)
+							},
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            우리은행'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 남대문로 118</div>'
+										+ '                <div><a href="javascript:fnConfirm(2)">예약하기</a></div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.567723, 126.98306)
+							},
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            대우조선해양'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 다동</div>'
+										+ '                <div><a href="javascript:fnConfirm(3)">예약하기</a></div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.568407, 126.98229)
+							},
+							{
+								content : '<div class="wrap">'
+										+ '    <div class="info">'
+										+ '        <div class="title">'
+										+ '            을지로입구역 3번출구'
+										+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
+										+ '        </div>'
+										+ '        <div class="body">'
+										+ '            <div class="img">'
+										+ '                <img src="resources/images/station.jpg" width="73" height="70">'
+										+ '           </div>'
+										+ '            <div class="desc">'
+										+ '                <div class="ellipsis">서울특별시 중구 남대문로1가</div>'
+										+ '                <div><a href="javascript:fnConfirm(4)">예약하기</a></div>'
+										+ '            </div>' + '        </div>'
+										+ '    </div>' + '</div>',
+								latlng : new daum.maps.LatLng(37.5665246, 126.98291)
+							} ];
+				}
 				/* 마커, 오버레이 만들기
 				for (var i = 0; i < positions.length; i++) {
 					(function(i) {	// 클로저
