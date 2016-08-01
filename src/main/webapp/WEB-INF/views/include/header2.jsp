@@ -15,8 +15,8 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div id="nav" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#">서비스안내</a></li>
-						<li><a href="#">요금안내</a></li>
+						<li><a href="/service_guide/AboutUs">서비스안내</a></li>
+						<li><a href="/fare_guide/fareGuide">요금안내</a></li>
 						<li><a href="/service/notice?page=1">고객센터</a></li>
 						<li><a href="/search?m_code=${member.m_code}" style="color: #6DD66D">Station찾기/예약</a></li>
 						<li><a href="/member/mypage" style="color: #6DD66D">마이페이지</a></li>

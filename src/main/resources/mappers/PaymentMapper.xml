@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.babjo.mappers.PaymentMapper">
+
+	<insert id="pay">
+		insert into tbl_payment(m_code, money, p_means, mileage)
+		values(#{m_code}, #{money}, #{p_means}, #{mileage})
+	</insert>
+	
+	<select id="readPayInfo" resultType="PaymentVO">
+		select * from tbl_payment 
+		where p_code = #{p_code}
+	</select>
+	
+	<update id="update">
+		update tbl_member set money=money+#{money}, mileage=mileage+#{mileage}
+		where m_code = #{m_code};
+	</update>
+	
+	<update id="useMileage">
+		update tbl_member set mileage = mileage-#{mileage} 
+		where m_code = #{m_code}
+	</update>
+	
+	<update id="upgrade">
+		update tbl_member set m_grade = #{m_grade} 
+		where m_code = #{m_code}
+	</update>
+</mapper>
