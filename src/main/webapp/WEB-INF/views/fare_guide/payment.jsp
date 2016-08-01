@@ -19,7 +19,7 @@
 
 	function Check(){
 		var m_grade = '${member.m_grade}';
-		var m_mileage = '${member.mileage}';
+		var m_mileage = '${member.m_mileage}';
 		var usemileage = $("#usemileage").val();
 		var money = $(":input:radio[name=amount]:checked").val()
 		var sum = money-usemileage;
@@ -98,12 +98,24 @@
 	a{
 		font-weight: bold;
 	}
+	
+	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
+		background-color:#5cb85c;
+		color:#eeeeee;
+	}
 </style>
 
 <body>
 
 <%@include file="../include/header2.jsp" %>
 <div id="wrap">
+<div class="row" style="margin-top: 10px; margin-bottom: 1%">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h1 style="color: #BDBDBD">이용안내</h1>
+	</div>
+	<div class="col-md-2"></div>
+</div>
 <div class="row">
 	<div class="col-sm-2"></div>
 	<div class="col-sm-2" style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 25%">
@@ -184,7 +196,7 @@
 						<input type="text" name="usemileage" id="usemileage" class="form-control" style="width: 100%" >
 						<button type="button" class="btn btn-default btn-xs" onclick="Check()">적용</button>
 					</td>
-					<td><h6>내 마일리지 : <input type="text" name="getMileage" id="getMileage" class="form-control" value="${member.mileage}"/></h6></td>
+					<td><h6>내 마일리지 : <input type="text" name="getMileage" id="getMileage" class="form-control" value="${member.m_mileage}"/></h6></td>
 				</tr>
 				<tr>
 					<td>최종 결제금액 :</td>

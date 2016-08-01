@@ -23,20 +23,32 @@
 	a{
 		font-weight: bold;
 	}
+	
+	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
+		background-color:#5cb85c;
+		color:#eeeeee;
+	}
 </style>
 <body>
 	<%@include file="../include/header.jsp" %>
 	<div id="wrap">
+	<div class="row" style="margin-top: 10px; margin-bottom: 1%">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h1 style="color: #BDBDBD">서비스안내</h1>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-2"
 			style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 25%">
 			<ul class="nav nav-pills nav-stacked" role="tablist">
 				<li role="presentation" class="active"><a href="/service_guide/AboutUs"
-					aria-controls="notice" role="tab"><span
+					aria-controls="aboutUs" role="tab"><span
 						style="font-size: medium">GreenCycle이란?</span></a></li>
 				<li role="presentation"><a href="/service_guide/HowToUse"
-					aria-conrols="faq" role="tab"><span
+					aria-conrols="howToUse" role="tab"><span
 						style="color: #aaaaaa; font-size: medium">이용방법</span></a></li>
 			</ul>
 		</div>

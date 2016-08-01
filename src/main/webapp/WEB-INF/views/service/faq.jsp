@@ -27,8 +27,8 @@
 	}
 	
 	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
-		background-color:#eeeeee;
-		color:#5cb85c;
+		background-color:#5cb85c;
+		color:#eeeeee
 	}
 </style>
 <script src="/resources/js/jquery-2.2.4.min.js"></script>
@@ -39,10 +39,10 @@
 <div id="wrap">
 <!-- 상단바 끝 -->
 
-  <div class="row" style="margin-bottom: 1%">
+  <div class="row" style="margin-top: 10px; margin-bottom: 1%">
 	  <div class="col-md-2"></div>
 	  <div class="col-md-8">
-	  	<h1>고객센터</h1>
+	  	<h1 style="color: #BDBDBD">고객센터</h1>
 	  </div>
 	  <div class="col-md-2"></div>
   </div>
@@ -70,13 +70,14 @@
 			    <div class="panel-heading" role="tab" id="headingOne">
 			      <h4 class="panel-title">
 			        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          Collapsible Group Item #1
+			          [스테이션] 스테이션은 무엇이며 어디에 있나요?
 			        </a>
 			      </h4>
 			    </div>
 			    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 			      <div class="panel-body">
-			        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			        	Green Cycle의 대여와 반납이 무인으로 이루어지는 정류장 형태의 공간을 스테이션이라고 합니다. 이용자는 장소에 구애받지 않고 스테이션이 설치된 곳이면 어디에서나 자전거를 대여하고 반납할 수 있습니다.
+						스테이션은 주변 생활시설에 접근 및 시민들의 이용이 편리한 장소를 중심으로 설치되어 있으며, 현재 종로1가를 중심으로 총 4개의 스테이션을 운영 중에 있습니다. 각 구역별 스테이션의 위치는 홈페이지 상단 <b>“Station 찾기/조회”</b>메뉴에서 확인하실 수 있습니다.
 			      </div>
 			    </div>
 			  </div>
@@ -84,13 +85,13 @@
 			    <div class="panel-heading" role="tab" id="headingTwo">
 			      <h4 class="panel-title">
 			        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			          Collapsible Group Item #2
+			          [결제] Green Cycle 자전거 이용 비용은?
 			        </a>
 			      </h4>
 			    </div>
 			    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 			      <div class="panel-body">
-			        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			        	일반회원 서비스를 이용할 경우 <b>7일권(2,000원)</b> , <b>30일권(5,000원)</b>, <b>1년권(30,000원)</b> 등 가입기간에 따라 비용이 차등 적용됩니다.
 			      </div>
 			    </div>
 			  </div>
@@ -98,13 +99,17 @@
 			    <div class="panel-heading" role="tab" id="headingThree">
 			      <h4 class="panel-title">
 			        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-			          Collapsible Group Item #3
+			          [홈페이지] 홈페이지 회원가입은 왜 하나요?
 			        </a>
 			      </h4>
 			    </div>
 			    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 			      <div class="panel-body">
-			        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			        	홈페이지는 회원님의 자전거 이용내역, 결제내역 등 보다 다양한 부가서비스를 이용하기 위해 가입합니다.
+						홈페이지 회원가입을 하시면 다음과 같은 부가서비스를 이용하실 수 있습니다.<br/><br/>
+						- 서비스 회원 가입정보(기간, 마일리지, 동호회  등)<br/>
+						- 이용내역(이용날짜, 이용station 등)<br/>
+						- 결제내역(결제날짜, 결제상품 등)
 			      </div>
 			    </div>
 			  </div>

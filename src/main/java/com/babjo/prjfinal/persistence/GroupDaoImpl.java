@@ -12,43 +12,47 @@ import com.babjo.prjfinal.domain.GroupVO;
 @Repository
 public class GroupDaoImpl implements GroupDAO{
 
-	@Inject
-	private SqlSession SqlSession;
-	
-	private static final String NAMESPACE = "com.rkskekabc.mappers.GroupMapper";
-	
-	@Override
-	public void estab(GroupVO vo) throws Exception {
-		SqlSession.insert(NAMESPACE + ".estab", vo);
-		
-	}
+   @Inject
+   private SqlSession SqlSession;
+   
+   private static final String NAMESPACE = "com.rkskekabc.mappers.GroupMapper";
+   
+   @Override
+   public void estab(GroupVO vo) throws Exception {
+      SqlSession.insert(NAMESPACE + ".estab", vo);
+      
+   }
+   
+   @Override
+   public GroupVO ginfo(int m_code) throws Exception {
+      return SqlSession.selectOne(NAMESPACE+ ".ginfo", m_code);
+   }
+
+   @Override
+   public void make(GroupVO vo) throws Exception {
+      SqlSession.insert(NAMESPACE + ".makeboard", vo);
+      
+   }
+
+   @Override
+   public void join(GroupVO vo) throws Exception {
+      SqlSession.insert(NAMESPACE+ ".join", vo);
+   }
 
 
-	@Override
-	public void make(GroupVO vo) throws Exception {
-		SqlSession.insert(NAMESPACE + ".makeboard", vo);
-		
-	}
-
-	@Override
-	public void join(GroupVO vo) throws Exception {
-		SqlSession.insert(NAMESPACE+ ".join", vo);
-	}
+   @Override
+   public List<GroupVO> infogroup() throws Exception {
+      return SqlSession.selectList(NAMESPACE + ".infogroup");
+   }
 
 
-	@Override
-	public List<GroupVO> infogroup() throws Exception {
-		return SqlSession.selectList(NAMESPACE + ".infogroup");
-	}
+   @Override
+   public List<GroupVO> gboard(int g_code) throws Exception {
+      
+      return SqlSession.selectList(NAMESPACE + ".gboard", g_code);
+   }
 
 
-	@Override
-	public List<GroupVO> gboard(int g_code) throws Exception {
-		
-		return SqlSession.selectList(NAMESPACE + ".gboard", g_code);
-	}
-
-
-	
+   
 
 }

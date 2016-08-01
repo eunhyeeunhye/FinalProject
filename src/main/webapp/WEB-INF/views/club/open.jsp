@@ -140,7 +140,7 @@ html,body{height:100%}
 
 						<c:forEach items="${group }" var="group">
 							<tr>
-								<td><a href="/myclub/go?g_code=${group.g_code }&b_code=4">${group.name }</a></td>
+								<td><a href="/myclub/go?g_code=${group.g_code }&b_code=1">${group.name }</a></td>
 								<td>${group.purpose }</td>
 								<td>${group.m_code }</td>
 							</tr>

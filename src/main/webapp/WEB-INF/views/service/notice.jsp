@@ -27,8 +27,8 @@
 	}
 	
 	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
-		background-color:#eeeeee;
-		color:#5cb85c;
+		background-color:#5cb85c;
+		color:#eeeeee
 	}
 	
 	.col-sm-6{
@@ -47,10 +47,10 @@
 <%@include file="../include/header.jsp" %>
 <div id="wrap">
 <!-- 상단바 끝 -->
-  <div class="row" style="margin-bottom: 1%">
+  <div class="row" style="margin-top: 10px; margin-bottom: 1%">
 	  <div class="col-md-2"></div>
 	  <div class="col-md-8">
-	  	<h1>고객센터</h1>
+	  	<h1 style="color: #BDBDBD">고객센터</h1>
 	  </div>
 	  <div class="col-md-2"></div>
   </div>
@@ -63,10 +63,10 @@
 		    <li role="presentation"><a href="/service/faq" aria-controls="faq" role="tab"><span style="color: #aaaaaa; font-size: medium">FAQ</span></a></li>
 		    <c:choose>
 		    	<c:when test="${member.m_grade == '운영자'}">
-		    		<li role="presentation" class="active"><a href="/service/adminRequest?page=1" aria-controls="request" role="tab"><span style="color: #aaaaaa; font-size: medium">1:1문의</span></a></li>
+		    		<li role="presentation"><a href="/service/adminRequest?page=1" aria-controls="request" role="tab"><span style="color: #aaaaaa; font-size: medium">1:1문의</span></a></li>
 		    	</c:when>
 		    	<c:otherwise>
-		    		<li role="presentation" class="active"><a href="/service/request?page=1&m_code=${member.m_code}" aria-controls="request" role="tab"><span style="color: #aaaaaa; font-size: medium">1:1문의</span></a></li>
+		    		<li role="presentation"><a href="/service/request?page=1&m_code=${member.m_code}" aria-controls="request" role="tab"><span style="color: #aaaaaa; font-size: medium">1:1문의</span></a></li>
 		    	</c:otherwise>
 		    </c:choose>
 		  </ul>

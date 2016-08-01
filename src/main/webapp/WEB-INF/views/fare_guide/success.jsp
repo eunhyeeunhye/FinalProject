@@ -23,9 +23,21 @@
 	a{
 		font-weight: bold;
 	}
+	
+	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
+		background-color:#5cb85c;
+		color:#eeeeee;
+	}
 </style>
 <%@include file="../include/header.jsp" %>
 <div id="wrap">
+	<div class="row" style="margin-top: 10px; margin-bottom: 1%">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h1 style="color: #BDBDBD">이용안내</h1>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-2"

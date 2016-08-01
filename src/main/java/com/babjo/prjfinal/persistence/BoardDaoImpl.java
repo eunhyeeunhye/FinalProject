@@ -58,8 +58,8 @@ public class BoardDaoImpl implements BoardDAO {
 	public List<BoardVO> groupboard(int g_code, int b_code) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("gcode", g_code);
-		param.put("bcode", b_code);
+		param.put("g_code", g_code);
+		param.put("b_code", b_code);
 		return SqlSession.selectList(NAMESPACE + ".groupboard", param);
 	}
 

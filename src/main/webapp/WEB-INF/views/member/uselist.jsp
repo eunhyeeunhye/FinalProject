@@ -26,8 +26,8 @@
 	}
 	
 	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
-		background-color:#eeeeee;
-		color:#5cb85c;
+		background-color:#5cb85c;
+		color:#eeeeee;
 	}
 </style>
 <body>

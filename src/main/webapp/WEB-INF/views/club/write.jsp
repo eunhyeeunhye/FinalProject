@@ -75,10 +75,7 @@ html,body{height:100%}
 					<h3 class="box-title">글 쓰기</h3>
 				</div>
 				<form role="form" method="post">
-					<input type="hidden" name="g_code" value="${group.g_code }">
-				</form>
-				<form role="form" method="post">
-
+					
 					<div class="box-body">
 						<div class="form-group">
 							<label for="title">제목</label> <input type="text" name='title'
@@ -150,7 +147,6 @@ html,body{height:100%}
 		var formObj = $("form[role='form']");
 		$(".btn-primary").on("click", function(){
 			formObj.attr("action", "/club/write");
-			formObj.attr("method", "POST");
 			formObj.submit();
 			
 		});

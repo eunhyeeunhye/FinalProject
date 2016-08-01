@@ -24,7 +24,7 @@ a {font-weight: bold;}
 /* 사이드메듀 관련 style 끝 */
 
 /* 상단바 관련 style 시작 */
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{background-color: #eeeeee; color: #5cb85c;}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{background-color:#5cb85c;color:#eeeeee;}
 /* 상단바 관련 style 끝 */
 
 html,body{height:100%}
@@ -40,10 +40,10 @@ body{margin:0}
 
 	<!-- 메뉴 선택 이름 바 시작 -->
 	<div id="wrap">
-	<div class="row" style="margin-bottom: 1%">
+	<div class="row" style="margin-top: 10px; margin-bottom: 1%">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<h1>Station 찾기/예약</h1>
+			<h1 style="color: #BDBDBD">Station 찾기/예약</h1>
 		</div>
 		<div class="col-md-2"></div>
 	</div>

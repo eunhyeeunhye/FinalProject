@@ -27,8 +27,8 @@
 	}
 	
 	.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
-		background-color:#eeeeee;
-		color:#5cb85c;
+		background-color:#5cb85c;
+		color:#eeeeee
 	}
 	
 	.col-sm-6{
@@ -48,10 +48,10 @@
 <div id="wrap">
 <!-- 상단바 끝 -->
 
-  <div class="row" style="margin-bottom: 1%">
+  <div class="row" style="margin-top: 10px; margin-bottom: 1%">
 	  <div class="col-md-2"></div>
 	  <div class="col-md-8">
-	  	<h1>고객센터</h1>
+	  	<h1 style="color: #BDBDBD">고객센터</h1>
 	  </div>
 	  <div class="col-md-2"></div>
   </div>
