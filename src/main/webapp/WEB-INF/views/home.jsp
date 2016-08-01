@@ -71,7 +71,7 @@
 			<button type="button" id="station" class="btn btn-success" style="width: 100%; padding: 15px; margin-bottom: 10px; font-size: 25px; font-weight: bold;"><i class="glyphicon glyphicon-map-marker" style="margin-right: 1%"></i>Station 검색 바로가기</button>
 			<button type="button" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/info3.png"></c:url>" width="80%" height="12%"></img><br/><br/>이용방법</button>
 			<button type="button" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/payment.png"></c:url>" width="80%" height="12%"></img><br/><br/>이용권구매</button>
-			<button type="button" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/group3.png"></c:url>" width="80%" height="12%"></img><br/><br/>동호회</button>
+			<button type="button" id="club" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/group3.png"></c:url>" width="80%" height="12%"></img><br/><br/>동호회</button>
 			<button type="button" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/payment3.png"></c:url>" width="80%" height="12%"></img><br/><br/>쿠폰북</button>
 		</div>
 	</div>
@@ -156,6 +156,15 @@
 		});
 		
 		var m_code = "<c:out value="${member.m_code}"/>"
+		
+		$("#club").on("click", function() {
+			if(m_code == 0){
+				$(location).attr('href', "/member/login");
+			}
+			else{
+				$(location).attr('href', "/open/club");
+			}
+		});
 		
 		if(m_code == 0){
 			$("#station").on("click", function() {

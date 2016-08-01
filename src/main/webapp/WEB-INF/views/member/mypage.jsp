@@ -147,10 +147,6 @@
 	$(document).ready(function() {
 		$("#m_name").focus();
 		
-		$("#signup").on("click", function() {
-			$(location).attr('href', "/member/signup");
-		});
-		
 		$("#logoutconfirm").on("click", function() {
 			$(location).attr('href', "/member/logout");
 		});

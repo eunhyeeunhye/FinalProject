@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    
+<mapper namespace = "com.rkskekabc.mappers.GroupMapper">
+	<insert id = "estab" parameterType="GroupVO">
+		insert into tbl_group1(m_code, name, purpose) values (#{m_code},#{name},#{purpose})
+	</insert>
+	
+	<insert id = "regist" parameterType="GroupVO">
+		insert into tbl_group2(g_code, m_code) values (#{g_code}, #{m_code})
+	</insert>
+	
+	<insert id="makeboard">
+		insert into tbl_gboard(g_code, b_code, b_name) values (#{g_code}, #{b_code}, #{b_name})
+	</insert>
+	
+	<insert id = "join">
+		insert into tbl_group2(g_code, m_code) values (#{g_code}, #{m_code})
+	</insert>
+	
+	<select id = "infogroup" resultType="GroupVO">
+		select * from tbl_group1 where g_code>0 order by g_code desc
+	</select>
+	
+	<select id = "gboard" resultType="GroupVO" parameterType="int">
+		select * from tbl_gboard where g_code=#{g_code}
+	</select>
+	
+
+</mapper>
