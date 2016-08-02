@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.babjo.prjfinal.domain.GroupVO;
 import com.babjo.prjfinal.domain.MemberVO;
 import com.babjo.prjfinal.domain.PaymentVO;
 import com.babjo.prjfinal.domain.RentVO;
@@ -44,6 +45,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<PaymentVO> payList(int m_code) {
 		return dao.payList(m_code);
+	}
+
+	@Override
+	public GroupVO myClub1(int m_code) {
+		return dao.myClub1(m_code);
+	}
+
+	@Override
+	public List<GroupVO> myClub2(int m_code) {
+		return dao.myClub2(m_code);
 	}
 
 }

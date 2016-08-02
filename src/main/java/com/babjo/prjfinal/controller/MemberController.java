@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.WebUtils;
 
+import com.babjo.prjfinal.domain.GroupVO;
 import com.babjo.prjfinal.domain.MemberVO;
 import com.babjo.prjfinal.service.MemberService;
 
@@ -92,7 +93,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
-	public String mypage(){
+	public String mypage(int m_code, Model model){
+		if(service.myClub1(m_code) != null){
+			model.addAttribute("myclub1", service.myClub1(m_code));
+		}
+		if(service.myClub2(m_code) != null){
+			model.addAttribute("myclub2", service.myClub2(m_code));
+		}
+		
 		return "member/mypage";
 	}
 	

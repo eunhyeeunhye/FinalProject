@@ -111,7 +111,7 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 	})
 </script>

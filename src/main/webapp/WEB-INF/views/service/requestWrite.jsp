@@ -34,7 +34,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 <body>
 <!-- 상단바 시작 -->
-<%@include file="../include/header2.jsp" %>
+<%@include file="../include/header.jsp" %>
 <div id="wrap">
 <!-- 상단바 끝 -->
 
@@ -127,30 +127,8 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
-		
-		$("#station").on("click", function() {
-			$(location).attr('href', "/search");
-		});
-		
-		$("#navtab1").on("click", function() {
-			$("#tab1").css("color", "#555");
-			$("#tab2").css("color", "#6DD66D");
-			$("#tab3").css("color", "#6DD66D");
-		})
-		
-		$("#navtab2").on("click", function() {
-			$("#tab1").css("color", "#6DD66D");
-			$("#tab2").css("color", "#555");
-			$("#tab3").css("color", "#6DD66D");
-		})
-		
-		$("#navtab3").on("click", function() {
-			$("#tab1").css("color", "#6DD66D");
-			$("#tab2").css("color", "#6DD66D");
-			$("#tab3").css("color", "#555");
-		})
 	})
 </script>
 </html>

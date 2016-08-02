@@ -26,7 +26,7 @@
 	}
 </style>
 <body>
-<%@include file="../include/header3.jsp" %>
+<%@include file="../include/header.jsp" %>
 <div id="wrap">
 <div class="row" style="margin-top: 10px">
 	<div class="col-md-2"></div>

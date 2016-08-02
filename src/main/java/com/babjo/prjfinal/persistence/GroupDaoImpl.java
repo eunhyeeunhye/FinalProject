@@ -29,6 +29,12 @@ public class GroupDaoImpl implements GroupDAO{
    }
 
    @Override
+   public GroupVO binfo(int g_code) throws Exception {
+      return SqlSession.selectOne(NAMESPACE +".binfo", g_code);
+   }
+
+   
+   @Override
    public void make(GroupVO vo) throws Exception {
       SqlSession.insert(NAMESPACE + ".makeboard", vo);
       
@@ -52,6 +58,7 @@ public class GroupDaoImpl implements GroupDAO{
       return SqlSession.selectList(NAMESPACE + ".gboard", g_code);
    }
 
+   
 
    
 

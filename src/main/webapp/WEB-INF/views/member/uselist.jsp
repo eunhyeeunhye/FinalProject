@@ -31,7 +31,7 @@
 	}
 </style>
 <body>
-<%@include file="../include/header2.jsp" %>
+<%@include file="../include/header.jsp" %>
 <div id="wrap">
 <div class="row" style="margin-top: 10px; margin-bottom: 1%">
 	<div class="col-md-2"></div>
@@ -44,9 +44,9 @@
 	  <div class="col-md-2"></div>
 	  <div class="col-md-2" style="background-color: #eeeeee; padding-top:1%; padding-bottom: 25%">
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
-		    <li role="presentation"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="color: #aaaaaa; font-size: medium">내 정보</span></a></li>
+		    <li role="presentation"><a href="/member/mypage?m_code=${member.m_code}" aria-controls="myinfo" role="tab"><span style="color: #aaaaaa; font-size: medium">내 정보</span></a></li>
 		    <li role="presentation" class="active"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="font-size: medium">이용내역 / 반납</span></a></li>
-		    <li role="presentation"><a href="/member/paylist?m_code=${member.m_code}" aria-controls="paylist" role="tab"><span style="color: #aaaaaa; font-size: medium">결제내역</span></a></li>
+		    <li role="presentation"><a href="/member/paylist?m_code=${member.m_code}" aria-controls="paylist" role="tab"><span style="color: #aaaaaa; font-size: medium">결제내역 / 마일리지</span></a></li>
 		  </ul>
 	  </div>
 	  <!-- Tab panes -->
@@ -104,7 +104,7 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 		
 		$("#turnin").on("click", function() {

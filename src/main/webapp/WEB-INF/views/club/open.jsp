@@ -29,7 +29,7 @@ html,body{height:100%}
 	}
 </style>
 <body>
-	<%@include file="../include/header2.jsp" %>
+	<%@include file="../include/header.jsp" %>
 
 
 	<div id="wrap">
@@ -210,7 +210,7 @@ html,body{height:100%}
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 	})
 </script>

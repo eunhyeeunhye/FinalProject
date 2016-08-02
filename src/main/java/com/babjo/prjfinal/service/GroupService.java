@@ -9,6 +9,8 @@ public interface GroupService {
    
    public GroupVO ginfo(int m_code) throws Exception;
    
+   public GroupVO binfo(int g_code) throws Exception;
+   
    public void regist(GroupVO vo) throws Exception;
    
    public void make(GroupVO board) throws Exception;

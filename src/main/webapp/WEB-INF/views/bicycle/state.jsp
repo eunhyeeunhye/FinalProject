@@ -35,7 +35,7 @@ body{margin:0}
 </head>
 <body>
 	<!-- 상단바 시작 -->
-	<%@include file="../include/header2.jsp" %>
+	<%@include file="../include/header.jsp" %>
 	<!-- 상단바 종료 -->
 
 	<!-- 메뉴 선택 이름 바 시작 -->
@@ -135,7 +135,7 @@ body{margin:0}
 		});
 
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 	})
 </script>

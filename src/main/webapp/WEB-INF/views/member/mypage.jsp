@@ -31,7 +31,7 @@
 	}
 </style>
 <body>
-<%@include file="../include/header2.jsp" %>
+<%@include file="../include/header.jsp" %>
 <div id="wrap">
 <div class="row" style="margin-top: 10px; margin-bottom: 1%">
 	<div class="col-md-2"></div>
@@ -46,7 +46,7 @@
 		  <ul class="nav nav-pills nav-stacked" role="tablist">
 		    <li role="presentation" class="active"><a href="/member/mypage" aria-controls="myinfo" role="tab"><span style="font-size: medium">내 정보</span></a></li>
 		    <li role="presentation"><a href="/member/uselist?m_code=${member.m_code}" aria-controls="uselist" role="tab"><span style="color: #aaaaaa; font-size: medium">이용내역 / 반납</span></a></li>
-		    <li role="presentation"><a href="/member/paylist?m_code=${member.m_code}" aria-controls="paylist" role="tab"><span style="color: #aaaaaa; font-size: medium">결제내역</span></a></li>
+		    <li role="presentation"><a href="/member/paylist?m_code=${member.m_code}" aria-controls="paylist" role="tab"><span style="color: #aaaaaa; font-size: medium">결제내역 / 마일리지</span></a></li>
 		  </ul>
 	  </div>
 	  <!-- Tab panes -->
@@ -85,7 +85,7 @@
 			<div id="m_mileage_form" class="form-group">
 				<label for="m_mileage" class="col-md-3 control-label">보유 마일리지</label>
 				<div class="col-md-7">
-					<input type="text" id="m_mileage" name="m_mileage" class="form-control" style="width: 100%" placeholder="마일리지" disabled="disabled" value="${member.m_mileage}"/>
+					<input type="text" id="m_mileage" name="m_mileage" class="form-control" style="width: 100%" placeholder="마일리지" disabled="disabled" value="${member.m_mileage}캐시"/>
 				</div>
 			</div>
 			<div id="m_use_form" class="form-group">
@@ -108,14 +108,18 @@
 			</div>
 			<table class="table">
 				<tr>
-					<th>번호</th><th>동호회 이름</th><th>탈퇴하기</th>
+					<th>동호회 이름</th><th>동호회 개설 목적</th><th>개설일</th>
 				</tr>
-				<tr>
-					<td>1</td><td><a href="#">안녕</a></td><td><a href="#">탈퇴하기</a></td>
-				</tr>
-				<tr>
-					<td>2</td><td><a href="#">칭구들</a></td><td><a href="#">탈퇴하기</a></td>
-				</tr>
+				<c:if test="${myclub1 != null}">
+					<tr>
+						<td><a href="#">${myclub1.name}</a></td><td>${myclub1.purpose}</td><td>${myclub1.regdate}</td>
+					</tr>
+				</c:if>
+				<c:forEach items="${myclub2}" var="list">
+					<tr>
+						<td><a href="#">${list.name}</a></td><td>${list.purpose}</td><td>${list.regdate}</td>
+					</tr>
+				</c:forEach>
 			</table>
 	  	</div>
 	  </div>
@@ -152,7 +156,7 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 		
 		// 이름 검사

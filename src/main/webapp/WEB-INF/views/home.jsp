@@ -72,15 +72,15 @@
 			<button type="button" id="service_guide" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/info3.png"></c:url>" width="80%" height="12%"></img><br/><br/>이용방법</button>
 			<button type="button" id="fare_guide" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/payment.png"></c:url>" width="80%" height="12%"></img><br/><br/>이용권구매</button>
 			<button type="button" id="club" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/group3.png"></c:url>" width="80%" height="12%"></img><br/><br/>동호회</button>
-			<button type="button" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/payment3.png"></c:url>" width="80%" height="12%"></img><br/><br/>쿠폰북</button>
+			<button type="button" id="mileage" class="btn btn-default" style="width: 25%; font-weight: bold;"><img src="<c:url value="/resources/images/payment3.png"></c:url>" width="80%" height="12%"></img><br/><br/>마일리지</button>
 		</div>
 	</div>
 	<div class="col-md-4">
 	  <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
-	    <li id="navtab1" role="presentation" class="active"><a id="tab1" href="#home" aria-controls="home" role="tab" data-toggle="tab">공지사항</a></li>
-	    <li id="navtab2" role="presentation"><a id="tab2" href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="color: #6DD66D">동호회</a></li>
-	    <li id="navtab3" role="presentation"><a id="tab3" href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="color: #6DD66D">FAQ</a></li>
+	    <li id="navtab1" role="presentation" class="active"><a id="tab1" href="#home" aria-controls="home" role="tab" data-toggle="tab" style="background-color: #5cb85c; color: #eeeeee; border-color: #D8D8D8; border-bottom-color: white">공지사항</a></li>
+	    <li id="navtab2" role="presentation"><a id="tab2" href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="color: #5cb85c; border-color: #D8D8D8; border-bottom-color: white">동호회</a></li>
+	    <li id="navtab3" role="presentation"><a id="tab3" href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="color: #5cb85c; border-color: #D8D8D8; border-bottom-color: white">FAQ</a></li>
 	  </ul>
 		<br/>
 	  <!-- Tab panes -->
@@ -90,26 +90,40 @@
 	    		<tr>
 	    			<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
 	 			</tr>
-	 			<c:forEach begin="0" end="3" items="${noticeList}" var="list">
+	 			<c:forEach begin="0" end="3" items="${noticeList}" var="list" varStatus="status">
 		 			<tr>
-		 				<td>${list.n_code}</td><td><a href="service/noticeRead?n_code=${list.n_code}">${list.title}</a></td><td>${list.writer}</td><td>${list.regdate}</td>
+		 				<td>${status.count}</td><td><a href="service/noticeRead?n_code=${list.n_code}">${list.title}</a></td><td>${list.writer}</td><td>${list.regdate}</td>
 		 			</tr>
 	 			</c:forEach>
 	    	</table>
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="profile">
-	    	<ul>
-	    		<li>첫번째 동호회 글</li>
-	    		<li>두번째 동호회 글</li>
-	    		<li>...</li>
-	    	</ul>
+	    	<table class="table table-hover" style="font-size: small">
+	    		<tr>
+	    			<th>번호</th><th>제목</th><th>작성일</th><th>조회수</th>
+	 			</tr>
+	 			<c:forEach begin="0" end="3" items="${clubList}" var="list" varStatus="status">
+		 			<tr>
+		 				<td>${status.count}</td><td><a href="">${list.title}</a></td><td>${list.regdate}</td><td>${list.viewcnt}</td>
+		 			</tr>
+	 			</c:forEach>
+	    	</table>
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="messages">
-	    	<ul>
-	    		<li>첫번째 FAQ</li>
-	    		<li>두번째 FAQ</li>
-	    		<li>...</li>
-	    	</ul>
+	    	<table class="table table-hover" style="font-size: small">
+	    		<tr>
+	    			<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
+	 			</tr>
+	 			<tr>
+	 				<td>1</td><td><a href="service/faq">[스테이션] 스테이션은 무엇이며 어디에 있나요?</a></td><td>운영자</td><td>2016-08-01</td>
+	 			</tr>
+	 			<tr>
+	 				<td>2</td><td><a href="service/faq">[결제] Green Cycle 자전거 이용 비용은?</a></td><td>운영자</td><td>2016-08-01</td>
+	 			</tr>
+	 			<tr>
+	 				<td>3</td><td><a href="service/faq">[홈페이지] 홈페이지 회원가입은 왜 하나요?</a></td><td>운영자</td><td>2016-08-01</td>
+	 			</tr>
+	    	</table>
 	    </div>
 	  </div>
 	</div>
@@ -152,18 +166,32 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 		
 		$("#service_guide").on("click", function() {
 			$(location).attr('href', "/service_guide/HowToUse");
 		});
 		
+		var m_code = "<c:out value="${member.m_code}"/>"
+		
 		$("#fare_guide").on("click", function() {
-			$(location).attr('href', "/fare_guide/fareGuide");
+			if(m_code == 0){
+				$(location).attr('href', "/member/login");
+			}
+			else{
+				$(location).attr('href', "/fare_guide/payment");
+			}
 		});
 		
-		var m_code = "<c:out value="${member.m_code}"/>"
+		$("#mileage").on("click", function() {
+			if(m_code == 0){
+				$(location).attr('href', "/member/login");
+			}
+			else{
+				$(location).attr('href', "/member/paylist?m_code=" + m_code);
+			}
+		});
 		
 		$("#club").on("click", function() {
 			if(m_code == 0){
@@ -174,33 +202,31 @@
 			}
 		});
 		
-		if(m_code == 0){
-			$("#station").on("click", function() {
+		$("#station").on("click", function() {
+			if(m_code == 0){
 				$(location).attr('href', "/search");
-			});
-		}
-		else{
-			$("#station").on("click", function() {
+			}
+			else{
 				$(location).attr('href', "/search?m_code=${member.m_code}");
-			});
-		}
+			}
+		});
 		
 		$("#navtab1").on("click", function() {
-			$("#tab1").css("color", "#555");
-			$("#tab2").css("color", "#6DD66D");
-			$("#tab3").css("color", "#6DD66D");
+			$("#tab1").css("color", "#eeeeee").css("background-color", "#5cb85c");
+			$("#tab2").css("color", "#5cb85c").css("background-color", "white");
+			$("#tab3").css("color", "#5cb85c").css("background-color", "white");
 		})
 		
 		$("#navtab2").on("click", function() {
-			$("#tab1").css("color", "#6DD66D");
-			$("#tab2").css("color", "#555");
-			$("#tab3").css("color", "#6DD66D");
+			$("#tab1").css("color", "#5cb85c").css("background-color", "white");
+			$("#tab2").css("color", "#eeeeee").css("background-color", "#5cb85c");
+			$("#tab3").css("color", "#5cb85c").css("background-color", "white");
 		})
 		
 		$("#navtab3").on("click", function() {
-			$("#tab1").css("color", "#6DD66D");
-			$("#tab2").css("color", "#6DD66D");
-			$("#tab3").css("color", "#555");
+			$("#tab1").css("color", "#5cb85c").css("background-color", "white");
+			$("#tab2").css("color", "#5cb85c").css("background-color", "white");
+			$("#tab3").css("color", "#eeeeee").css("background-color", "#5cb85c");
 		})
 	})
 </script>

@@ -13,6 +13,10 @@
       select * from tbl_group1 where m_code = #{m_code};
    </select>
    
+   <select id = "binfo" parameterType="int" resultType="GroupVO">
+      select * from tbl_gboard where g_code = #{g_code};
+   </select>
+   
    <insert id = "regist" parameterType="GroupVO">
       insert into tbl_group2(g_code, m_code) values (#{g_code}, #{m_code})
    </insert>
@@ -29,9 +33,9 @@
       select * from tbl_group1 where g_code>0 order by g_code desc
    </select>
    
-   <select id = "gboard" resultType="GroupVO" parameterType="int">
+   <select id = "gboard" parameterType="int" resultType="GroupVO" >
       select * from tbl_gboard where g_code=#{g_code}
    </select>
    
-
+   
 </mapper>

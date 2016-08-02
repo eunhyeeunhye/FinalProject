@@ -25,6 +25,12 @@ public class GroupServiceImpl implements GroupService{
       return dao.ginfo(m_code);
       
    }
+   
+   @Override
+   public GroupVO binfo(int g_code) throws Exception {
+      return dao.binfo(g_code);
+   }
+
 
    @Override
    public void make(GroupVO board) throws Exception {
@@ -50,6 +56,7 @@ public class GroupServiceImpl implements GroupService{
       return dao.gboard(g_code);
    }
 
+   
 
    
 

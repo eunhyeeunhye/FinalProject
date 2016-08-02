@@ -104,7 +104,9 @@ body{margin:0}
 				var map = new daum.maps.Map(container, options); // make map
 				var m_code = "<c:out value="${member.m_code}"/>"
 				var r_state = "<c:out value="${rentVO[0].r_state}"/>"
-				if(m_code == 0 || r_state == 1){
+				var result = "<c:out value="${result}"/>"
+				
+				if(m_code == 0 || r_state == 1 || result == 1){
 					/* 마커 위치 */
 					var positions = [
 							{
@@ -334,7 +336,7 @@ body{margin:0}
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage");
+			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
 		});
 	})
 </script>

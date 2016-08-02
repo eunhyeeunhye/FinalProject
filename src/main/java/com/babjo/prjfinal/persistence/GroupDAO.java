@@ -9,6 +9,8 @@ public interface GroupDAO {
    
    public GroupVO ginfo(int m_code) throws Exception;
    
+   public GroupVO binfo(int g_code) throws Exception;
+   
    public void make(GroupVO vo) throws Exception;
 
    public void join(GroupVO vo) throws Exception;

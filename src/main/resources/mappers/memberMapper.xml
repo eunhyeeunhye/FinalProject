@@ -27,4 +27,12 @@
 	<select id="payList" parameterType="int" resultType="PaymentVO">
 		select * from tbl_payment where m_code = #{m_code} order by p_code desc
 	</select>
+	
+	<select id="myClub1" parameterType="int" resultType="GroupVO">
+		select * from tbl_group1 where m_code = #{m_code}
+	</select>
+	
+	<select id="myClub2" parameterType="int" resultType="GroupVO">
+		select * from tbl_group1 where g_code in (select g_code from tbl_group2 where m_code = #{m_code})
+	</select>
 </mapper>

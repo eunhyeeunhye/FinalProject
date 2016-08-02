@@ -34,33 +34,72 @@ public class ClubController {
    }
 
    @RequestMapping(value = "/myclub/go", method = RequestMethod.GET)
-   public String goClub(Model model, @RequestParam("g_code") int g_code, @RequestParam("b_code")int b_code)
+   public String goClub(Model model, @RequestParam("g_code") int g_code, @RequestParam("b_code") int b_code)
          throws Exception {
 
       model.addAttribute("list2", service.groupboard(g_code, b_code));
-      System.out.println(g_code + "," +b_code); // ������� �޾ƿ� �ٵ� ���� ���ҷ����� ������...�ε�ε�
+      System.out.println(g_code + "," + b_code); // ������� �޾ƿ� �ٵ� ����
+                                       // ���ҷ����� ������...�ε�ε�
       model.addAttribute("group", service2.gboard(g_code));
       return "/club/info";
    }
 
+   // 동아리만드는 코드
+   @RequestMapping(value = "/make/club", method = RequestMethod.GET)
+   private String MakeClub() {
+      return "club/estab";
+   }
+
+   @RequestMapping(value = "/make/club", method = RequestMethod.POST)
+   public String estabClub(GroupVO vo, Model model) throws Exception {
+      service2.estab(vo);
+      GroupVO vo2 = service2.ginfo(vo.getM_code());
+      model.addAttribute("group", vo2);
+
+      logger.info(vo2.getG_code() + "," + vo.getName() + "," + vo.getPurpose());
+      return "club/check";
+   }
+
+   // 게시판 만드는 코드
+   @RequestMapping(value = "/club/make", method = RequestMethod.GET)
+   public String makeBoardGet(@RequestParam("g_code") int g_code, Model model) {
+      System.out.println("아아"+g_code);
+      model.addAttribute("gcode", g_code);
+      return "club/make";
+   }
+
+   @RequestMapping(value = "/club/make", method = RequestMethod.POST)
+   public String makeBoardPost(GroupVO board,  Model model) throws Exception {
+      service2.make(board);
+      System.out.println("게시판 만들어짐" + board.getG_code());
+      model.addAttribute("gcode", board.getG_code());
+      return "/club/m_check";
+   }
+
    @RequestMapping(value = "/club/write", method = RequestMethod.GET)
-   private String writeClubGet() {
+   private String writeClubGet(Model model, @RequestParam("g_code") int g_code) {
+      model.addAttribute("gcode", g_code);
+      System.out.println("쀼" + g_code);
       return "club/write";
    }
 
    @RequestMapping(value = "/club/write", method = RequestMethod.POST)
-   public String writeClubPost(BoardVO board, RedirectAttributes model) throws Exception {
-      service.write(board);
-      System.out.println(board.getG_code());
-      return "redirect:/myclub/go?g_code =" + board.getG_code() +"b_code="+board.getB_code();
+   public String writeClubPost(BoardVO board, Model model) throws Exception {
       
+      System.out.println("야" +board.getG_code());
+      GroupVO vo2 = service2.binfo(board.getG_code());
+      model.addAttribute("group", vo2);
+      logger.info(vo2.getG_code() + "," + vo2.getB_code());
+      service.write(board);
+      return "redirect:/myclub/go?g_code="+board.getG_code() + "b_code=" + board.getB_code();
+
    }
 
    @RequestMapping(value = "/club/read")
    private void readClub(@RequestParam("bno") int bno, Model model) throws Exception {
       model.addAttribute(service.read(bno));
       System.out.println(bno);
-      
+
    }
 
    @RequestMapping(value = "/club/modify")
@@ -82,23 +121,6 @@ public class ClubController {
       return "redirect:/myclub/go";
    }
 
-   
-   //동아리만드는 코드
-   @RequestMapping(value = "/make/club", method = RequestMethod.GET)
-   private String MakeClub() {
-      return "club/estab";
-   }
-
-   @RequestMapping(value = "/make/club", method = RequestMethod.POST)
-   public String estabClub(GroupVO vo, Model model) throws Exception {
-      service2.estab(vo);
-      GroupVO vo2 = service2.ginfo(vo.getM_code());
-      model.addAttribute("group", vo2);
-      
-      logger.info(vo2.getG_code() + "," + vo.getName() + "," + vo.getPurpose());
-      return "club/check";
-   }
-
    @RequestMapping("/club/join")
    public String joinGet() {
       return "club/join";
@@ -109,21 +131,6 @@ public class ClubController {
    public String joinPost(GroupVO vo) throws Exception {
       service2.regist(vo);
       return "redirect:/myclub/go";
-   }
-
-   
-   //게시판 만드는 코드
-   @RequestMapping(value = "/club/make", method = RequestMethod.GET)
-   public String makeBoardGet(@RequestParam("g_code") int g_code, Model model) {
-      System.out.println(g_code);
-      model.addAttribute("gcode", g_code);
-      return "club/make";
-   }
-
-   @RequestMapping(value = "/club/make", method = RequestMethod.POST)
-   public String makeBoardPost(GroupVO board) throws Exception {
-      service2.make(board);
-      return "/club/m_check";
    }
 
 }

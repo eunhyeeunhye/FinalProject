@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import org.springframework.stereotype.Repository;
 
+import com.babjo.prjfinal.domain.GroupVO;
 import com.babjo.prjfinal.domain.MemberVO;
 import com.babjo.prjfinal.domain.PaymentVO;
 import com.babjo.prjfinal.domain.RentVO;
@@ -55,5 +56,15 @@ public class MemberDAOImpl implements MemberDAO {
 	public List<PaymentVO> payList(int m_code) {
 		return sqlSession.selectList(NAMESPACE + ".payList", m_code);
 	}
-	
+
+	@Override
+	public GroupVO myClub1(int m_code) {
+		return sqlSession.selectOne(NAMESPACE + ".myClub1", m_code);
+	}
+
+	@Override
+	public List<GroupVO> myClub2(int m_code) {
+		return sqlSession.selectList(NAMESPACE + ".myClub2", m_code);
+	}
+		
 }

@@ -12,6 +12,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.babjo.prjfinal.domain.BicycleVO;
+import com.babjo.prjfinal.domain.PaymentVO;
 import com.babjo.prjfinal.domain.RentVO;
 import com.babjo.prjfinal.service.BicycleService;
+import com.babjo.prjfinal.service.MemberService;
 
 
 
@@ -34,9 +37,37 @@ public class BicycleController {
 	@Inject
 	private BicycleService service;
 	
+	@Autowired
+	private MemberService service2;
+	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search(@ModelAttribute RentVO vo, Model model) throws Exception {
 		model.addAttribute("rentVO", service.renting(vo));
+		
+		List<PaymentVO> list = service2.payList(vo.getM_code());
+		Date p_date = list.get(0).getP_date();
+		Date date = new Date();
+		int usedate = 0;
+		
+		if(list.get(0).getUsedate().equals("365")){
+			usedate = 365;
+		}
+		else if(list.get(0).getUsedate().equals("30")){
+			usedate = 30;
+		}
+		else if(list.get(0).getUsedate().equals("7")){
+			usedate = 7;
+		}
+		
+		String result = null;
+		if(date.compareTo(p_date) > usedate){
+			result = "1";
+		}
+		else{
+			result = "2";
+		}
+
+		model.addAttribute("result", result);
 		return "/bicycle/search";
 	}
 	

@@ -25,7 +25,7 @@
 			        </c:when>
 			        <c:when test="${member != null}">
 			        	<li><a href="/search?m_code=${member.m_code}" style="color: #6DD66D">Station찾기/예약</a></li>
-			        	<li><a href="/member/mypage" style="color: #6DD66D">마이페이지</a></li>
+			        	<li><a href="/member/mypage?m_code=${member.m_code}" style="color: #6DD66D">마이페이지</a></li>
 			        </c:when>
 		        </c:choose>
 		      </ul>
