@@ -31,75 +31,107 @@
 
 </head>
 <body>
-	<div class="row">
-		<div class="col-sm-6">
-		<c:forEach end="0" items="${info }" var="bicycleVO">
-			<table class="table table-striped">
-				<tr>
-					<th>대여 시간</th>
-					<th>${time }</th>
-				</tr>
-				<tr>
-					<th>대여 장소</th>
-					<th>${bicycleVO.s_location }, 스테이션 번호 : ${bicycleVO.s_code }번</th>
-				</tr>
-				<tr>
-					<th>상세주소</th>
-					<th>${bicycleVO.s_sub_location }</th>
-				</tr>
-				<tr>
-					<th>자전거 번호
-					<th>${bicycleVO.b_code }, 상태 : 
-					<c:choose>
-						<c:when test="${bicycleVO.b_state=='1'}">
-						대여가능
-						</c:when>
-					</c:choose>
-					</th>
-					
-				<tr>
-					<th>대여자 명의
-					<th>${member.m_name }</th>
-				</tr>
-			</table>
-			</c:forEach>
-		</div>
-		<h1>실시간 현황</h1>
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-		<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div align="center">
-				<p style="color: #aaaaaa; font-size: medium">대여정보를 확인하신 후 확인 버튼을 눌러주세요.</p>
-				<form method="post" name="mainform" action="/rentbicycle">
-					<input type="button" value="확인" onclick="fnConfirm()">
-					<c:forEach end="0" items="${info }" var="bicycleVO">
-					<input type="hidden" name="r_date" value="${time }">
-					<input type="hidden" name="b_code" value="${bicycleVO.b_code }">
-					<input type="hidden" name="s_code" value="${bicycleVO.s_code }">
-					<input type="hidden" name="s_location" value="${bicycleVO.s_location }">
-					<input type="hidden" name="s_sub_location" value="${bicycleVO.s_sub_location }">
-					<input type="hidden" name="m_code" value="${member.m_code }">
-					<input type="hidden" name="m_name" value="${member.m_name }">
-					<input type="hidden" name="r_state" value="1">
-					</c:forEach>
-					<input type="button" value="취소" onclick="fnClose()">
-				</form>
+	<c:choose>
+		<c:when test="${info[0].s_location == null}">
+			<div class="row">
+				<div class="col-sm-6">
+					<table class="table table-striped">
+						<tr>
+							<th>Green Cycle</th>
+						</tr>
+						<tr>
+							<th>-</th>
+						</tr>
+						<tr>
+							<th>해당 스테이션에 대여 가능한 자전거가 없습니다.</th>
+						</tr>
+						<tr>
+							<th>-</th>
+						</tr>
+						<tr>
+							<th>다른 스테이션을 이용해 주세요.</th>
+						</tr>
+					</table>
+				</div>
+				<h1>실시간 현황</h1>
+				<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
+				<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
+				<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
+				<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
+				<img src="resources/images/bicycle_black.png" width="85px" height="65px" />
+				<br/><br/>
+				<img src="resources/images/bicycle_green.png" width="45px" height="35px" /> : 대여 가능&nbsp;&nbsp;
+				<img src="resources/images/bicycle_black.png" width="45px" height="35px" /> : 대여중
 			</div>
-		</div>
-	</div>
-
+			<div class="row">
+				<div class="col-sm-12">
+					<div align="center">
+						<input type="button" value="확인" onclick="fnClose()">
+					</div>
+				</div>
+			</div>
+		</c:when>
+		<c:when test="${info != null}">
+			<div class="row">
+				<div class="col-sm-6">
+				<c:forEach end="0" items="${info }" var="bicycleVO">
+					<table class="table table-striped">
+						<tr>
+							<th>대여 시간</th>
+							<th>${time }</th>
+						</tr>
+						<tr>
+							<th>대여 장소</th>
+							<th>${bicycleVO.s_location }, 스테이션 번호 : ${bicycleVO.s_code }번</th>
+						</tr>
+						<tr>
+							<th>상세주소</th>
+							<th>${bicycleVO.s_sub_location }</th>
+						</tr>
+						<tr>
+							<th>자전거 번호</th>
+							<th>${bicycleVO.b_code }, 상태 : 대여가능</th>	
+						<tr>
+							<th>대여자 명의
+							<th>${member.m_name }</th>
+						</tr>
+					</table>
+				</c:forEach>
+				</div>
+				<h1>실시간 현황</h1>
+				<c:forEach items="${bInfo}" var="list">
+					<c:if test="${list.b_state == 1}"><img src="resources/images/bicycle_green.png" width="85px" height="65px" /></c:if>
+					<c:if test="${list.b_state == 2}"><img src="resources/images/bicycle_black.png" width="85px" height="65px" /></c:if>
+				</c:forEach>
+				<br/><br/>
+				<img src="resources/images/bicycle_green.png" width="45px" height="35px" /> : 대여 가능&nbsp;&nbsp;
+				<img src="resources/images/bicycle_black.png" width="45px" height="35px" /> : 대여중
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div align="center">
+						<p style="color: #aaaaaa; font-size: medium">대여정보를 확인하신 후 확인 버튼을 눌러주세요.</p>
+						<form method="post" name="mainform" action="/rentbicycle">
+							<input type="button" value="확인" onclick="fnConfirm()">
+							<c:forEach end="0" items="${info }" var="bicycleVO">
+							<input type="hidden" name="r_date" value="${time }">
+							<input type="hidden" name="b_code" value="${bicycleVO.b_code }">
+							<input type="hidden" name="s_code" value="${bicycleVO.s_code }">
+							<input type="hidden" name="s_location" value="${bicycleVO.s_location }">
+							<input type="hidden" name="s_sub_location" value="${bicycleVO.s_sub_location }">
+							<input type="hidden" name="m_code" value="${member.m_code }">
+							<input type="hidden" name="m_name" value="${member.m_name }">
+							<input type="hidden" name="r_state" value="1">
+							</c:forEach>
+							<input type="button" value="취소" onclick="fnClose()">
+						</form>
+					</div>
+				</div>
+			</div>
+		</c:when>
+	</c:choose>
+</body>
 	<!-- BootStrap v3.3.2 -->
 	<script src="<c:url value="/resources/js/jquery-2.2.4.min.js"></c:url>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
-</body>
 </html>

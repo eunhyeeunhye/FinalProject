@@ -15,9 +15,6 @@ import com.babjo.prjfinal.domain.MemberVO;
 import com.babjo.prjfinal.domain.PaymentVO;
 import com.babjo.prjfinal.service.PaymentService;
 
-
-
-
 @Controller
 @RequestMapping("/fare_guide/*")
 public class PaymentController {
@@ -42,10 +39,9 @@ public class PaymentController {
 		//이용권 구매
 		logger.info("vo :" + vo.toString());
 		service.pay(vo);
-		//service.update(member);
-		
+		service.update(member);
+
 		model.addAttribute("payInfo", vo);
 		return "/fare_guide/success";
 	}	
-	
 }

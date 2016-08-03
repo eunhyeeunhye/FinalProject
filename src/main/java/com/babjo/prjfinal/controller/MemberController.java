@@ -2,6 +2,9 @@ package com.babjo.prjfinal.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,7 @@ import org.springframework.web.util.WebUtils;
 
 import com.babjo.prjfinal.domain.GroupVO;
 import com.babjo.prjfinal.domain.MemberVO;
+import com.babjo.prjfinal.domain.PaymentVO;
 import com.babjo.prjfinal.service.MemberService;
 
 @Controller
@@ -78,7 +82,7 @@ public class MemberController {
 		
 		JSONObject json = new JSONObject();
 		json.put("result", result);
-		  
+		
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out;
 		
@@ -94,12 +98,20 @@ public class MemberController {
 	
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	public String mypage(int m_code, Model model){
+		if(!service.payList(m_code).isEmpty()){
+			List<PaymentVO> list = service.payList(m_code);
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			model.addAttribute("p_date", format.format(list.get(0).getP_date()));
+			model.addAttribute("payList", list);
+		}
 		if(service.myClub1(m_code) != null){
 			model.addAttribute("myclub1", service.myClub1(m_code));
 		}
 		if(service.myClub2(m_code) != null){
 			model.addAttribute("myclub2", service.myClub2(m_code));
 		}
+		
+		model.addAttribute("myMileage", service.myMileage(m_code));
 		
 		return "member/mypage";
 	}
@@ -119,7 +131,16 @@ public class MemberController {
 	
 	@RequestMapping(value="/paylist", method=RequestMethod.GET)
 	public String paylist(int m_code, Model model){
-		model.addAttribute("payList", service.payList(m_code));
+		if(!service.payList(m_code).isEmpty()){
+			List<PaymentVO> list = service.payList(m_code);
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			ArrayList<String> list2 = new ArrayList<String>();
+			for(int i=0; i<list.size(); i++){
+				list2.add(format.format(list.get(i).getP_date()));
+			}
+			model.addAttribute("p_date", list2);
+			model.addAttribute("payList", list);
+		}
 		return "member/paylist";
 	}
 }

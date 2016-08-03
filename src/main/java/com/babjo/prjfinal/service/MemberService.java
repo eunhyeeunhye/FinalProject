@@ -16,4 +16,5 @@ public interface MemberService {
 	public List<PaymentVO> payList(int m_code);
 	public GroupVO myClub1(int m_code);
 	public List<GroupVO> myClub2(int m_code);
+	public int myMileage(int m_code);
 }

@@ -51,16 +51,13 @@
 		</div>
 		<div class="col-sm-4">
 			<h3 style="color: #aaaaaa; font-size:xlarge">결제가 완료되었습니다!</h3><br/>
-
+			<input type="hidden" name="m_code" value="${member.m_code}" />
 			<table class="table table-hover">
 				<tr>
-					<td><b>${member.m_name} 회원님 께서 결제한 정보입니다.</b></td><td></td>
+					<td><b>"${member.m_name}"회원님께서 결제한 정보입니다.</b></td><td></td>
 				</tr>
 				<tr>
-					<td>결제일자</td><td>${payInfo.p_date}</td>
-				</tr>
-				<tr>
-					<td>사용기간</td><td>${payInfo.usedate}</td>
+					<td>이용기간</td><td>${payInfo.p_period}일</td>
 				</tr>
 				<tr>
 					<td>결제수단</td><td>${payInfo.p_means}</td>
@@ -69,17 +66,19 @@
 					<td>사용 한 마일리지</td><td>${payInfo.usemileage} P</td>
 				</tr>
 				<tr>
-					<td>적립 된 마일리지</td><td>${payInfo.mileage} P</td>
+					<td>적립 된 마일리지</td><td>${payInfo.savemileage} P</td>
 				</tr>
 				<tr>
-					<td><b>최종결제금액</b></td><td><b>${payInfo.money} 원</b></td>
+					<td><b>최종결제금액</b></td><td><b>${payInfo.p_money} 원</b></td>
 				</tr>
 			</table>
 		</div>
 		<div class="col-sm-4">
 			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		  	<button type="submit" class="btn btn-default btn-s" style="margin-top: 15px">
-		  	<span style="color: #aaaaaa; font-size: medium">결제내역조회</span></button>
+		  	<button type="button" class="btn btn-default btn-s" id="paylist" style="margin-top: 15px">
+		  	<span style="font-size: medium">결제내역조회</span></button>
+		  	<button type="button" class="btn btn-default btn-s" id="goinghome" style="margin-top: 15px">
+		  	<span style="font-size: medium">Home</span></button>
 		</div>
 	</div>
 </div>
@@ -111,7 +110,15 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
+			$(location).attr('href', "/member/mypage");
+		});
+		
+		$("#paylist").on("click", function() {
+			$(location).attr('href', "/member/paylist?m_code=${member.m_code}");
+		});
+
+		$("#goinghome").on("click", function() {
+			$(location).attr('href', "/");
 		});
 	})
 </script>

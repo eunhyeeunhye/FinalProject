@@ -14,6 +14,11 @@
 		where b_state=1 and s_code=#{s_code}
 	</select>
 	
+	<select id="bicycleinfo" resultType="BicycleVO">
+		select * from tbl_bicycle 
+		where s_code=#{s_code}
+	</select>
+	
 	<insert id="rentinfo">
 		insert into tbl_rent(r_date, b_code, s_code, s_location, s_sub_location, m_code, m_name, r_state)
 		value(#{r_date}, #{b_code}, #{s_code}, #{s_location}, #{s_sub_location}, #{m_code}, #{m_name}, #{r_state})

@@ -7,10 +7,10 @@ public class PaymentVO {
 	private int m_code;
 	private Date p_date;
 	private String p_means;
-	private String usedate;
-	private int money;
+	private String p_period;
+	private int p_money;
 	private int usemileage;
-	private int mileage;
+	private int savemileage;
 	
 	
 	public int getP_code() {
@@ -37,30 +37,28 @@ public class PaymentVO {
 	public void setP_means(String p_means) {
 		this.p_means = p_means;
 	}
-	public String getUsedate() {
-		return usedate;
+	public String getP_period() {
+		return p_period;
 	}
-	public void setUsedate(String usedate) {
-		this.usedate = usedate;
+	public void setP_period(String p_period) {
+		this.p_period = p_period;
 	}
-	public int getMoney() {
-		return money;
+	public int getP_money() {
+		return p_money;
 	}
-	public void setMoney(int money) {
-		this.money = money;
+	public void setP_money(int p_money) {
+		this.p_money = p_money;
 	}
-	
 	public int getUsemileage() {
 		return usemileage;
 	}
 	public void setUsemileage(int usemileage) {
 		this.usemileage = usemileage;
 	}
-	
-	public int getMileage() {
-		return mileage;
+	public int getSavemileage() {
+		return savemileage;
 	}
-	public void setMileage(int mileage) {
-		this.mileage = mileage;
+	public void setSavemileage(int savemileage) {
+		this.savemileage = savemileage;
 	}
 }

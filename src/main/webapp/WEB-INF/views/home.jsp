@@ -104,7 +104,7 @@
 	 			</tr>
 	 			<c:forEach begin="0" end="3" items="${clubList}" var="list" varStatus="status">
 		 			<tr>
-		 				<td>${status.count}</td><td><a href="">${list.title}</a></td><td>${list.regdate}</td><td>${list.viewcnt}</td>
+		 				<td>${status.count}</td><td><a href="club/read?bno=${list.bno}">${list.title}</a></td><td>${list.regdate}</td><td>${list.viewcnt}</td>
 		 			</tr>
 	 			</c:forEach>
 	    	</table>
@@ -122,6 +122,9 @@
 	 			</tr>
 	 			<tr>
 	 				<td>3</td><td><a href="service/faq">[홈페이지] 홈페이지 회원가입은 왜 하나요?</a></td><td>운영자</td><td>2016-08-01</td>
+	 			</tr>
+	 			<tr>
+	 				<td>4</td><td><a href="service/faq">[마일리지] 마일리지는 어떻게 적용되나요?</a></td><td>운영자</td><td>2016-08-03</td>
 	 			</tr>
 	    	</table>
 	    </div>
@@ -173,6 +176,10 @@
 			$(location).attr('href', "/service_guide/HowToUse");
 		});
 		
+		$("#club").on("click", function() {
+			$(location).attr('href', "/open/club");
+		});
+		
 		var m_code = "<c:out value="${member.m_code}"/>"
 		
 		$("#fare_guide").on("click", function() {
@@ -190,15 +197,6 @@
 			}
 			else{
 				$(location).attr('href', "/member/paylist?m_code=" + m_code);
-			}
-		});
-		
-		$("#club").on("click", function() {
-			if(m_code == 0){
-				$(location).attr('href', "/member/login");
-			}
-			else{
-				$(location).attr('href', "/open/club");
 			}
 		});
 		

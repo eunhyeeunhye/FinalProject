@@ -85,13 +85,18 @@
 			<div id="m_mileage_form" class="form-group">
 				<label for="m_mileage" class="col-md-3 control-label">보유 마일리지</label>
 				<div class="col-md-7">
-					<input type="text" id="m_mileage" name="m_mileage" class="form-control" style="width: 100%" placeholder="마일리지" disabled="disabled" value="${member.m_mileage}캐시"/>
+					<input type="text" id="m_mileage" name="m_mileage" class="form-control" style="width: 100%" placeholder="마일리지" disabled="disabled" value="${myMileage}P"/>
 				</div>
 			</div>
 			<div id="m_use_form" class="form-group">
 				<label for="m_use" class="col-md-3 control-label">사용중인 이용권</label>
 				<div class="col-md-7">
-					<input type="text" id="m_use" name="m_use" class="form-control" style="width: 100%" placeholder="남은일수" disabled="disabled" value="30일권 : 29일 13시간 남음"/>
+					<c:if test="${payList[0].p_period != null}">
+						<input type="text" id="m_use" name="m_use" class="form-control" style="width: 100%" disabled="disabled" value="${payList[0].p_period}일권 / 결제날짜 : ${p_date}"/>
+					</c:if>
+					<c:if test="${payList[0].p_period == null}">
+						<input type="text" id="m_use" name="m_use" class="form-control" style="width: 100%" placeholder="없음" disabled="disabled"/>
+					</c:if>
 				</div>
 			</div>
 			<br/>

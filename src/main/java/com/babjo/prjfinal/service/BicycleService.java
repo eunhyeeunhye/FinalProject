@@ -14,6 +14,7 @@ import com.babjo.prjfinal.domain.RentVO;
 
 public interface BicycleService {
 	public List<BicycleVO> bicycleInfo(BicycleVO vo) throws Exception;
+	public List<BicycleVO> bInfo(Integer s_code);
 	public void rentinfo(RentVO vo) throws Exception;
 	public void rentbicycle(int b_code);
 	public List<RentVO> renting(RentVO vo) throws Exception;

@@ -91,7 +91,7 @@
 			    </div>
 			    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 			      <div class="panel-body">
-			        	일반회원 서비스를 이용할 경우 <b>7일권(2,000원)</b> , <b>30일권(5,000원)</b>, <b>1년권(30,000원)</b> 등 가입기간에 따라 비용이 차등 적용됩니다.
+			        	일반 회원 서비스를 이용할 경우 <b>7일권(2,000원)</b> , <b>30일권(5,000원)</b>, <b>1년권(30,000원)</b> 등 가입기간에 따라 비용이 차등 적용됩니다.
 			      </div>
 			    </div>
 			  </div>
@@ -110,6 +110,24 @@
 						- 서비스 회원 가입정보(기간, 마일리지, 동호회  등)<br/>
 						- 이용내역(이용날짜, 이용station 등)<br/>
 						- 결제내역(결제날짜, 결제상품 등)
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <div class="panel-heading" role="tab" id="headingFour">
+			      <h4 class="panel-title">
+			        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+			          [마일리지] 마일리지는 어떻게 적용되나요?
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+			      <div class="panel-body">
+			      		회원 등급에 따라 결제 금액의 일정 퍼센트만큼 차등 적용됩니다.<br/><br/>
+			      		- 준회원 : 총 결제금액의 <b>8%</b><br/>
+						- 정회원 : 총 결제금액의 <b>10%</b><br/>
+						- 우수회원 : 총 결제금액의 <b>15%</b><br/>
+						- 특별회원 : 총 결제금액의 <b>20%</b>
 			      </div>
 			    </div>
 			  </div>

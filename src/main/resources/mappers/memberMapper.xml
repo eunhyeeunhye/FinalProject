@@ -35,4 +35,8 @@
 	<select id="myClub2" parameterType="int" resultType="GroupVO">
 		select * from tbl_group1 where g_code in (select g_code from tbl_group2 where m_code = #{m_code})
 	</select>
+	
+	<select id="myMileage" parameterType="int" resultType="int">
+		select m_mileage from tbl_member where m_code = #{m_code}
+	</select>
 </mapper>

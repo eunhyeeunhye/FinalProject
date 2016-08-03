@@ -66,5 +66,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public List<GroupVO> myClub2(int m_code) {
 		return sqlSession.selectList(NAMESPACE + ".myClub2", m_code);
 	}
+
+	@Override
+	public int myMileage(int m_code) {
+		return sqlSession.selectOne(NAMESPACE + ".myMileage", m_code);
+	}
 		
 }

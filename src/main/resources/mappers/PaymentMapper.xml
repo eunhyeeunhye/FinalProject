@@ -6,8 +6,8 @@
 <mapper namespace="com.babjo.mappers.PaymentMapper">
 
 	<insert id="pay">
-		insert into tbl_payment(m_code, money, p_means, mileage)
-		values(#{m_code}, #{money}, #{p_means}, #{mileage})
+		insert into tbl_payment(m_code, p_money, p_means, p_period, usemileage, savemileage)
+		values(#{m_code}, #{p_money}, #{p_means}, #{p_period}, #{usemileage}, #{savemileage})
 	</insert>
 	
 	<select id="readPayInfo" resultType="PaymentVO">
@@ -16,15 +16,10 @@
 	</select>
 	
 	<update id="update">
-		update tbl_member set money=money+#{money}, mileage=mileage+#{mileage}
+		update tbl_member set m_money=m_money+#{m_money}, m_mileage = #{m_mileage}
 		where m_code = #{m_code};
 	</update>
-	
-	<update id="useMileage">
-		update tbl_member set mileage = mileage-#{mileage} 
-		where m_code = #{m_code}
-	</update>
-	
+		
 	<update id="upgrade">
 		update tbl_member set m_grade = #{m_grade} 
 		where m_code = #{m_code}

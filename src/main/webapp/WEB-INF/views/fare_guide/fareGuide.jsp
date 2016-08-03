@@ -60,6 +60,35 @@
 	
 	<div class="col-sm-4">
 	<h3>요금 안내</h3><br/>
+	<lavel>&nbsp; ■ 정기권 종류는 아래와 같습니다.</lavel><br/><br/>
+	<table class="table table-hover table-bordered text-center">
+				<tr class="success">
+					<td><b>정기권종류</b></td><td><b>정기권금액</b></td><td><b>비고</b></td>
+				</tr>
+				<tr>
+					<td>7일권</td><td>3000원</td>
+				</tr>
+				<tr>
+					<td>30일권</td><td>5000원</td>
+				</tr>
+				<tr>
+					<td>180일권</td><td>15000원</td>
+				</tr>
+				<tr>
+					<td>365일권</td><td>30000원</td>
+				</tr>
+	</table>
+	<lavel>&nbsp; ■ 결제안내</lavel><br/><br/>
+	&nbsp;- 회원가입 후 결제가 가능합니다.<br/>
+	&nbsp;- 정기권 결제 후 자전거 대여가 가능합니다.<br/><br/>
+	<lavel>&nbsp; ■ 마일리지 적립 안내</lavel><br/><br/>
+	&nbsp;- 회원님의 누적 결제금액에 따라 등급이 조정됩니다.<br/>
+	&nbsp;- 적립 된 마일리지는 다음 결제시 1P 단위로 사용가능합니다.<br/>
+	&nbsp;- 마일리지는 회원 등급에 따라 다르게 적립됩니다.(아래내용참고)<br/><br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;준회원 : 총 결제금액의 8%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정회원 : 총 결제금액의 10%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;우수회원 : 총 결제금액의 15%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;특별회원 : 총 결제금액의 20%<br/>
 	</div>
 	<div class="col-sm-4">
 	</div>
@@ -105,7 +134,7 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
+			$(location).attr('href', "/member/mypage");
 		});
 	})
 </script>

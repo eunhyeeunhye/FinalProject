@@ -57,4 +57,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.myClub2(m_code);
 	}
 
+	@Override
+	public int myMileage(int m_code) {
+		return dao.myMileage(m_code);
+	}
+
 }

@@ -60,6 +60,11 @@ public class BicycleServiceImpl implements BicycleService {
 		//System.out.println("b_code : " + b_code);
 		dao.turninbicycle(b_code);
 	}
+
+	@Override
+	public List<BicycleVO> bInfo(Integer s_code) {
+		return dao.bInfo(s_code);
+	}
 	
 
 }

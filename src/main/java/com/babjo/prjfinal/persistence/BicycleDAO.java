@@ -15,6 +15,7 @@ import com.babjo.prjfinal.domain.RentVO;
 public interface BicycleDAO {
 	
 	public List<BicycleVO> bicycleInfo(Integer s_code);
+	public List<BicycleVO> bInfo(Integer s_code);
 	public void rentinfo(RentVO vo);
 	public void rentbicycle(int b_code);
 	public List<RentVO> renting(Integer m_code);

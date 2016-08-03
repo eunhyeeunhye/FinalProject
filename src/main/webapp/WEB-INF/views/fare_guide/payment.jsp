@@ -15,72 +15,6 @@
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
-<script>
-
-	function Check(){
-		var m_grade = '${member.m_grade}';
-		var m_mileage = '${member.m_mileage}';
-		var usemileage = $("#usemileage").val();
-		var money = $(":input:radio[name=amount]:checked").val()
-		var sum = money-usemileage;
-		
-		if(usemileage > m_mileage){    
-			alert("보유한 마일리지보다 사용 할 마일리지 포인트가 클 수 없습니다. \n" + 
-				"내 마일리지 : " + m_mileage
-			);
-			
-		    $('#usemileage').focus;
-		}
-		else{
-			if(sum < 0){
-				alert("결제금액보다 사용 할 마일리지 포인트가 클 수 없습니다.");
-			}
-			else{
-				$(document).ready(function() {
-			        $('#money').val(sum);
-			    });
-				$(document).ready(function() {
-			        $("input[name=money]:hidden").val(sum);
-			    });
-				
-				if(m_grade == '준회원'){
-					$("input[name=mileage]:hidden").val(sum * 0.08);
-				}
-				else if(m_grade == '정회원'){
-					$("input[name=mileage]:hidden").val(sum * 0.1);
-				}
-				else if(m_grade == '우수회원'){
-					$("input[name=mileage]:hidden").val(sum * 0.15);
-				}
-				else if(m_grade == '특별회원'){
-					$("input[name=mileage]:hidden").val(sum * 0.2);
-				}
-				else {
-					alert("관리자입니다.");
-				}
-			}
-		}
-	}
-	
-	function paymentInfo(){
-		var money = $("#money").val();
-		var p_means = $(":input:radio[name=p_means]:checked").val();
- 		var mileage = $("input[name=mileage]:hidden").val();
-		var usemileage = $("#usemileage").val();
-		
-		alert(		
-				"결제수단 : " +  p_means + "\n" + 
-				"사용 한 마일리지 : " + usemileage + "P" + "\n" +
-				"적립 된 마일리지 : " + mileage + "원" + "\n" +
-				"최종 결제금액 : " + money + "원" + "\n" +
-				" \n\n" + 
-				"확인을 누르면 결제됩니다."
-			);
-		
-	}
-
-</script>
-
 <style>
 	html,body{height:100%}
 	body{margin:0}
@@ -139,8 +73,10 @@
 	<div class="col-sm-5">
 	<h3>이용권 구매</h3><br/>
 		<input type="hidden" name="m_code" value="${member.m_code}" />
-		<input type="hidden" name="mileage" value="" />
-		<input type="hidden" name="money" value="" />
+		<input type="hidden" name="m_money" value=""/>
+		<input type="hidden" name="m_mileage" value=""/>
+		<input type="hidden" name="savemileage" value="" />
+		<input type="hidden" name="p_period" value=""/>
 		<table class="table table-hover">
 				<tr>
 					<td>서비스 요금</td>
@@ -149,30 +85,43 @@
 						<div class="radio">
 						  <label>
 						    <input type="radio" name="amount" id="amount" value="3000" checked onclick="Check()">
-						    7일권&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3000원
+						    7일권
 						  </label>
 						 </div>
 						 <div class="radio">
 						  <label>
 						    <input type="radio" name="amount" id="amount" value="5000" onclick="Check()">
-						    30일권&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5000원
+						    30일권
 						  </label>
 						 </div>
 						 <div class="radio">
 						  <label>
 						    <input type="radio" name="amount" id="amount" value="15000" onclick="Check()">
-						    180일권&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15000원
+						    180일권
 						  </label>
 						 </div>
 						 <div>
 						  <label>
 						    <input type="radio" name="amount" id="amount" value="30000" onclick="Check()">
-						    365일권&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30000원
+						    365일권
 						  </label>
 						 </div>
 						</div>
 					</td>
-					<td></td>		
+					<td>
+						<div class="radio">
+						 <label>3000원</label>
+						</div>
+						<div class="radio">
+						 <label>5000원</label>
+						</div>
+						<div class="radio">
+						 <label>15000원</label>
+						</div>
+						<div class="radio">
+						 <label>30000원</label>
+						</div>
+					</td>		
 				</tr>
 				<tr>
 					<td>결제수단</td><td>	
@@ -193,15 +142,19 @@
 				<tr>
 					<td>마일리지</td>
 					<td>
-						<input type="text" name="usemileage" id="usemileage" class="form-control" style="width: 100%" >
-						<button type="button" class="btn btn-default btn-xs" onclick="Check()">적용</button>
+						<div class="input-append">
+							<input type="text" name="usemileage" id="usemileage" class="form-control text-right">
+							<h5>내 마일리지 : <b>${member.m_mileage}</b> P</h5>
+						</div>
 					</td>
-					<td><h6>내 마일리지 : <input type="text" name="getMileage" id="getMileage" class="form-control" value="${member.m_mileage}"/></h6></td>
+					<td>
+					<button type="button" class="btn btn-success" onclick="Check()">적용</button>
+					</td>
 				</tr>
 				<tr>
 					<td>최종 결제금액 :</td>
-					<td><b><input type="text" name="money" id="money" class="form-control" readonly></b>원</td>
-					<td></td>
+					<td><b><input type="text" name="p_money" id="p_money" class="form-control text-right" readonly></b></td>
+					<td>원</td>
 				</tr>
 
 			</table>
@@ -209,7 +162,7 @@
 
 	<div class="col-sm-3">
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		  <button type="submit" class="btn btn-default btn-s" style="margin-top: 15px" onclick="paymentInfo()">확인</button>
+		  <button type="submit" class="btn btn-success btn-s" style="margin-top: 15px" onclick="paymentInfo()">확인</button>
 	</div>
 </form>
 </div>
@@ -235,6 +188,7 @@
 </div><!-- /.modal -->
 </body>
 <script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
+
 <script>
 	$(document).ready(function() {
 		$("#logoutconfirm").on("click", function() {
@@ -242,8 +196,76 @@
 		});
 		
 		$("#mypage").on("click", function() {
-			$(location).attr('href', "/member/mypage?m_code=${member.m_code}");
+			$(location).attr('href', "/member/mypage");
 		});
+		
+		$("#usemileage").blur(function() {
+			var p_money = $(":input:radio[name=amount]:checked").val();
+			
+			if(p_money=="3000"){$("input[name=p_period]:hidden").val("7");}
+			else if(p_money=="5000"){$("input[name=p_period]:hidden").val("30");}
+			else if(p_money=="15000"){$("input[name=p_period]:hidden").val("180");}
+			else if(p_money=="30000"){$("input[name=p_period]:hidden").val("365");}
+		});
+		
 	})
+	
+	//마일리지와 결제금액 비교, 체크와 등급에 따른 마일리지 적립
+	function Check(){
+		var m_grade = '${member.m_grade}'; //등급
+		var m_mileage = parseInt('${member.m_mileage}'); //현재 내 마일리지
+		var usemileage = $("#usemileage").val(); //텍스트 상자에 입력 한 마일리지 (사용 할 마일리지)
+		var p_money = $(":input:radio[name=amount]:checked").val() //라디오박스에서 선택한 정기권의 금액
+		var sum = p_money-usemileage; 
+		
+		if(usemileage > m_mileage){    
+			alert("보유한 마일리지보다 사용 할 마일리지 포인트가 클 수 없습니다.");
+		    $("#usemileage").val('${member.m_mileage}');
+		    $("#usemileage").focus();
+		}
+		else{
+			if(sum < 0){
+				alert("결제금액보다 사용 할 마일리지 포인트가 클 수 없습니다.");
+			}
+			else{
+				$(document).ready(function() {$("#p_money").val(sum);});
+				$(document).ready(function() {$("input[name=m_money]:hidden").val(sum);});
+				
+				if(m_grade == '준회원'){
+					var mileage = m_mileage + Math.round(sum * 0.08) - usemileage;
+					$("input[name=savemileage]:hidden").val(Math.round(sum * 0.08));
+					$("input[name=m_mileage]:hidden").val(mileage);
+				}else if(m_grade == '정회원'){
+					var mileage = m_mileage + Math.round(sum * 0.1) - usemileage;
+					$("input[name=savemileage]:hidden").val(Math.round(sum * 0.1));
+					$("input[name=m_mileage]:hidden").val(mileage);
+				}else if(m_grade == '우수회원'){
+					var mileage = m_mileage + Math.round(sum * 0.15) - usemileage;
+					$("input[name=savemileage]:hidden").val(Math.round(sum * 0.15));
+					$("input[name=m_mileage]:hidden").val(mileage);
+				}else if(m_grade == '특별회원'){
+					var mileage = m_mileage + Math.round(sum * 0.2) - usemileage;
+					$("input[name=savemileage]:hidden").val(Math.round(sum * 0.2));	
+					$("input[name=m_mileage]:hidden").val(mileage);
+				}else {alert("관리자입니다.");}
+			}
+		}
+	}
+	
+	//결제 정보 확인창
+	function paymentInfo(){
+		var p_money = $("#p_money").val();
+		var p_means = $(":input:radio[name=p_means]:checked").val();
+ 		var savemileage = $("input[name=savemileage]:hidden").val();
+		var usemileage = $("#usemileage").val();
+		
+		alert(	"결제수단 : " +  p_means + "\n" + 
+				"사용 한 마일리지 : " + usemileage + "P" + "\n" +
+				"적립 된 마일리지 : " + savemileage + "원" + "\n" +
+				"최종 결제금액 : " + p_money + "원" + "\n" +
+				" \n\n" + 
+				"확인을 누르면 결제됩니다.");
+	}
+	
 </script>
 </html>

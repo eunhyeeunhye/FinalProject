@@ -61,4 +61,9 @@ public class BicycleDAOImpl implements BicycleDAO {
 		sqlSession.update(NAMESPACE + ".turninbicycle", b_code);
 	}
 
+	@Override
+	public List<BicycleVO> bInfo(Integer s_code) {
+		return sqlSession.selectList(NAMESPACE + ".bicycleinfo", s_code);
+	}
+
 }
