@@ -71,5 +71,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public int myMileage(int m_code) {
 		return sqlSession.selectOne(NAMESPACE + ".myMileage", m_code);
 	}
+
+	@Override
+	public String getWriter(int m_code) {
+		return sqlSession.selectOne(NAMESPACE + ".getWriter", m_code);
+	}
 		
 }

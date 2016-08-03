@@ -57,7 +57,7 @@
 		  	</tr>
 		  	<c:forEach begin="0" end="14" var="list" items="${payList}" varStatus="status">
 		  		<tr>
-			  		<td>${status.count}</td><td>${list.p_period}</td><td>${p_date[status.index]}</td><td>${list.p_money}원</td><td>${list.p_means}</td><td>${list.savemileage}P</td>
+			  		<td>${status.count}</td><td>${list.p_period}일권</td><td>${p_date[status.index]}</td><td>${list.p_money}원</td><td>${list.p_means}</td><td>${list.savemileage}P</td>
 			  	</tr>
 		  	</c:forEach>
 		  </table>

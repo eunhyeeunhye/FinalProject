@@ -7,6 +7,7 @@
 package com.babjo.prjfinal.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -63,10 +64,13 @@ public class BicycleController {
 				else if(list.get(0).getP_period().equals("7")){
 					usedate = 7;
 				}
-				System.out.println(date + ", " + p_date);
-				System.out.println(date.compareTo(p_date));
 				
-				if(date.compareTo(p_date) > usedate){
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(p_date);
+				cal.add(Calendar.DATE, usedate);
+				System.out.println(date.compareTo(cal.getTime()));
+				
+				if(date.compareTo(cal.getTime()) == 1){
 					result = "1";
 				}
 				else{

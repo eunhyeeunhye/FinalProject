@@ -17,4 +17,5 @@ public interface MemberDAO {
 	public GroupVO myClub1(int m_code);
 	public List<GroupVO> myClub2(int m_code);
 	public int myMileage(int m_code);
+	public String getWriter(int m_code);
 }

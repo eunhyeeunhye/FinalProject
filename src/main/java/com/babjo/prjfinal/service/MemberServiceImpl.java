@@ -62,4 +62,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.myMileage(m_code);
 	}
 
+	@Override
+	public String getWriter(int m_code) {
+		return dao.getWriter(m_code);
+	}
+
 }

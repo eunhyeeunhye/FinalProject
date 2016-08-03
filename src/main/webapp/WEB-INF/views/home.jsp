@@ -100,11 +100,11 @@
 	    <div role="tabpanel" class="tab-pane" id="profile">
 	    	<table class="table table-hover" style="font-size: small">
 	    		<tr>
-	    			<th>번호</th><th>제목</th><th>작성일</th><th>조회수</th>
+	    			<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
 	 			</tr>
 	 			<c:forEach begin="0" end="3" items="${clubList}" var="list" varStatus="status">
 		 			<tr>
-		 				<td>${status.count}</td><td><a href="club/read?bno=${list.bno}">${list.title}</a></td><td>${list.regdate}</td><td>${list.viewcnt}</td>
+		 				<td>${status.count}</td><td><a href="club/read?bno=${list.bno}">${list.title}</a></td><td>${writer[status.index]}</td><td>${list.regdate}</td>
 		 			</tr>
 	 			</c:forEach>
 	    	</table>

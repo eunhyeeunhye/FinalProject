@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.babjo.prjfinal.service.BoardService;
+import com.babjo.prjfinal.service.MemberService;
 import com.babjo.prjfinal.service.NoticeService;
 
 /**
@@ -30,6 +31,9 @@ public class HomeController {
 	
 	@Autowired
 	private BoardService service2;
+	
+	@Autowired
+	private MemberService service3;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -48,6 +52,13 @@ public class HomeController {
 		
 		model.addAttribute("noticeList", service.getNoticeList());
 		model.addAttribute("clubList", service2.list());
+		if(!service2.list().isEmpty()){
+			ArrayList<String> list = new ArrayList<String>();
+			for(int i=0; i<service2.list().size(); i++){
+				list.add(service3.getWriter(service2.list().get(i).getM_code()));
+			}
+			model.addAttribute("writer", list);
+		}
 		
 		return "home"; 
 	}
