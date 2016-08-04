@@ -10,4 +10,5 @@ public interface PaymentDAO {
 	public void update(MemberVO vo) throws Exception;
 	public void useMileage(MemberVO vo) throws Exception;
 	public List<PaymentVO> readPayInfo() throws Exception;
+	public int myMileage(int m_code);
 }

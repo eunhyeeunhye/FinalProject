@@ -39,5 +39,10 @@ public class PaymentServiceImpl implements PaymentService {
 	public List<PaymentVO> readPayInfo() throws Exception {
 		return dao.readPayInfo();
 	}
+	
+	@Override
+	public int myMileage(int m_code) {
+		return dao.myMileage(m_code);
+	}
 
 }

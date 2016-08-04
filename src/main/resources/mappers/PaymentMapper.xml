@@ -24,4 +24,8 @@
 		update tbl_member set m_grade = #{m_grade} 
 		where m_code = #{m_code}
 	</update>
+	
+	<select id="myMileage" parameterType="int" resultType="int">
+		select m_mileage from tbl_member where m_code = #{m_code}
+	</select>
 </mapper>

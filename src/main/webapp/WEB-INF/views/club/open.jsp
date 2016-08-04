@@ -48,7 +48,7 @@ html,body{height:100%}
 						<li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
 						<li><a href="#">인기동아리</a></li>
 						<li><a href="#">주제별 동아리</a></li>
-						<li><a href="#">동아리란?</a></li>
+						<li><a href="/club/introduce">동아리란?</a></li>
 					</ul>
 					<ul class="nav navbar-right">
 						<li><a href='/make/club'>동아리 개설하기</a></li>
@@ -100,8 +100,7 @@ html,body{height:100%}
 						<div class="tab-content">
 							<div role="tab1" class="tab-pane active" id="today">
 								<img src="<c:url value = "/resources/images/club.jpg"></c:url>"
-									alt="todays" style="width: 250px; height: 200px;"> 저희는
-								이런활동을 해요 저희는 이런활동을 해요저희는 이런활동을 해요저희는 이런활동을 해요 어쩌구 어쩌구
+									alt="todays" style="width: 250px; height: 200px;"> 저희 동아리는 하이킹을 위한 모임입니다.
 							</div>
 							<div role="tab2" class="tab-pane" id="theme"></div>
 							<div role="tab3" class="tab-pane" id="local"></div>

@@ -51,7 +51,7 @@
 					<span style="color: #aaaaaa; font-size: medium">이용권구매</span></a></li>
 					</c:when>
 					<c:when test="${member != null}">
-				<li role="presentation"><a href="/fare_guide/payment" aria-controls="notice" role="tab">
+				<li role="presentation"><a href="/fare_guide/payment?m_code=${member.m_code}" aria-controls="notice" role="tab">
 					<span style="color: #aaaaaa; font-size: medium">이용권구매</span></a></li>
 					</c:when>
 				</c:choose>

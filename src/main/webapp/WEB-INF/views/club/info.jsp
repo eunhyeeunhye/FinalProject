@@ -45,7 +45,7 @@ html,body{height:100%}
 						<li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
 						<li><a href="#">인기동아리</a></li>
 						<li><a href="#">주제별 동아리</a></li>
-						<li><a href="#">동아리 개설 취지</a></li>
+						<li><a href="/club/introduce">동아리란?</a></li>
 					</ul>
 					<ul class="nav navbar-right">
 						<li><a href="#">동아리 개설하기</a></li>
@@ -196,24 +196,29 @@ html,body{height:100%}
 	$(document).ready(function(){
 		$("#write").on("click", function(){
 			<!--$(location).attr('href', "/club/write?g_code=${g_code}");-->
-			$.ajax({
-				type:"POST",
-				url:"/member/check",
-				data:{
-					g_code:"${g_code}",
-					m_code:"${member.m_code}",
-				},
-				success:function(result){
-					alert(result);
-					if(result=='{"result":"yes"}'){
-						$(location).attr('href', "/club/write?g_code=${g_code}");
+			if("${member.m_code}" == null){
+				$.ajax({
+					type:"POST",
+					url:"/member/check",
+					data:{
+						g_code:"${g_code}",
+						m_code:"${member.m_code}",
+					},
+					success:function(result){
+						if(result=='{"result":"yes"}'){
+							$(location).attr('href', "/club/write?g_code=${g_code}");
+						}
+						else{
+							alert("동아리에 가입을 하셔야 해용");
+						}
 					}
-					else{
-						alert("동아리에 가입을 하셔야 해용");
-					}
-				}
-				
-			})
+					
+				})
+			}
+			else{
+				alert("로그인을 하셔야 해용");
+			}
+			
 		});
 		/*
 		$("#read").on("click", function(){
@@ -221,7 +226,12 @@ html,body{height:100%}
 		});
 		*/
 		$("#join").on("click", function(){
-			$(location).attr('href', "/club/join?g_code=${g_code}");
+			if("${member.m_code}" == null){
+				$(location).attr('href', "/club/join?g_code=${g_code}");
+			}
+			else{
+				alert("로그인을 하셔야 해용");
+			}
 		})
 		
 		$("#logoutconfirm").on("click", function() {

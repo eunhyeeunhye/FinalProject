@@ -42,15 +42,21 @@ public class ClubController {
       model.addAttribute("group", service2.infogroup());
       model.addAttribute("list", service.list());
       if(!service.list().isEmpty()){
-			ArrayList<String> list = new ArrayList<String>();
-			for(int i=0; i<service.list().size(); i++){
-				list.add(service3.getWriter(service.list().get(i).getM_code()));
-			}
-			model.addAttribute("writer", list);
+         ArrayList<String> list = new ArrayList<String>();
+         for(int i=0; i<service.list().size(); i++){
+            list.add(service3.getWriter(service.list().get(i).getM_code()));
+         }
+         model.addAttribute("writer", list);
       }
       return "/club/open";
    }
 
+   
+   @RequestMapping(value = "/club/introduce")
+   public String introduce(){
+      return "/club/introduce";
+   }
+   
    @RequestMapping(value = "/myclub/go", method = RequestMethod.GET)
    public String goClub(Model model, @RequestParam("g_code") int g_code, @RequestParam("b_code") int b_code)
          throws Exception {
@@ -59,11 +65,11 @@ public class ClubController {
       System.out.println("요기 리스트 이게 글 가져와야하는건뎅?" + g_code + "," + b_code);
       
       if(!service.groupboard(g_code, b_code).isEmpty()){
-			ArrayList<String> list = new ArrayList<String>();
-			for(int i=0; i<service.groupboard(g_code, b_code).size(); i++){
-				list.add(service3.getWriter(service.groupboard(g_code, b_code).get(i).getM_code()));
-			}
-			model.addAttribute("writer", list);
+         ArrayList<String> list = new ArrayList<String>();
+         for(int i=0; i<service.groupboard(g_code, b_code).size(); i++){
+            list.add(service3.getWriter(service.groupboard(g_code, b_code).get(i).getM_code()));
+         }
+         model.addAttribute("writer", list);
       }
       
       model.addAttribute("group", service2.gboard(g_code));
@@ -132,7 +138,7 @@ public class ClubController {
    private void readClub(@RequestParam("bno") int bno, Model model) throws Exception {
       model.addAttribute(service.read(bno));
       if(service.read(bno) != null){
-    	  model.addAttribute("writer", service3.getWriter(service.read(bno).getM_code()));
+         model.addAttribute("writer", service3.getWriter(service.read(bno).getM_code()));
       }
       System.out.println(bno);
 

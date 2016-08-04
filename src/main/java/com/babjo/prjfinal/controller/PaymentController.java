@@ -29,8 +29,10 @@ public class PaymentController {
 	}
 			
 	@RequestMapping(value="/payment", method=RequestMethod.GET)
-	public String getPayment(HttpServletRequest req, Model model) throws Exception{ 
+	public String getPayment(int m_code, HttpServletRequest req, Model model) throws Exception{ 
 		//이용권구매 페이지로 이동
+		
+		model.addAttribute("myMileage", service.myMileage(m_code));
 		return "/fare_guide/payment";
 	}
 

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="true" contentType="text/html; charset=UTF-8" isELIgnored="false"%>
+<%@ page session="true" contentType="text/html; charset=UTF-8"
+   isELIgnored="false"%>
 <html>
 <head>
 <title>CLUB_REGISTER</title>
@@ -67,39 +68,13 @@ html,body{height:100%}
 			<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<div class="register">
-					<form class="form-horizontal">
-						<div class="title" style="margin-left: 30px">
-							<br /> <br /> <br />
-							<h2>게시판 만들기</h2>
-							<br /> <br />
-						</div>
-					</form>
-					<form role="form" method="post">
-
-						<input type="hidden" name="g_code" value="${gcode }" />
-
-
-						<div class="form-group">
-							<label for="board_name" class="col-sm-2 control-label">이름</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name='b_name'
-									placeholder="게시판 이름을 작성하세요."><br/>
-							</div>
-						</div>
-					</form>
-
-
-					<div class="form-group">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary">게시판 만들기</button>
-						<button type="reset" class="btn btn-default">취소</button>
-					</div>
-				</div>
+			<br/><br/><br/><br/>
+				<img alt="" src="<c:url value = "/resources/images/introduce.png"></c:url>" 
+				alt = "introduce" style = "width:700px; height : 1100px">
 
 			</div>
-
+			<div class="col-md-4"></div>
 		</div>
-		<div class="col-md-4"></div>
    </div>
 <%@include file="../include/footer.jsp" %>
 <!-- 로그아웃 모달창 -->
@@ -124,14 +99,15 @@ html,body{height:100%}
 <script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
 <script>
    $(document).ready(function(){
-      var formObj = $("form[role='form']");
-      $(".btn-primary").on("click", function(){
-         formObj.attr("action", "/club/make");
-         formObj.attr("method", "POST");
-         formObj.submit();
-         
+      $("#make").on("click", function(){
+         $(location).attr('href',"/club/make?g_code=${group.g_code}");
       });
-      
+      /*$(".btn-primary").on("click", function(){
+         formObj.attr("action", "/club/make?g_code=${gcode}");
+         formObj.attr("method", "GET");
+         formObj.submit();
+      });
+      */
       $("#logoutconfirm").on("click", function() {
          $(location).attr('href', "/member/logout");
       });

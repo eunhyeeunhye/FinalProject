@@ -46,7 +46,7 @@ html,body{height:100%}
 						<li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
 						<li><a href="#">인기동아리</a></li>
 						<li><a href="#">주제별 동아리</a></li>
-						<li><a href="#">동아리 개설 취지</a></li>
+						<li><a href="/club/introduce">동아리란?</a></li>
 					</ul>
 					<ul class="nav navbar-right">
 						<li><a href="#">동아리 개설하기</a></li>

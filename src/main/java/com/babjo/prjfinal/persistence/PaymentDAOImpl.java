@@ -38,4 +38,10 @@ public class PaymentDAOImpl implements PaymentDAO {
 	public List<PaymentVO> readPayInfo() throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".readPayInfo");
 	}
+	
+	@Override
+	public int myMileage(int m_code) {
+		return sqlSession.selectOne(NAMESPACE + ".myMileage", m_code);
+	}
+	
 }

@@ -187,7 +187,7 @@
 				$(location).attr('href', "/member/login");
 			}
 			else{
-				$(location).attr('href', "/fare_guide/payment");
+				$(location).attr('href', "/fare_guide/payment?m_code=${member.m_code}");
 			}
 		});
 		

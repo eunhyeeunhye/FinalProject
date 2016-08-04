@@ -62,7 +62,7 @@
 					<span style="font-size: medium">이용권구매</span></a></li>
 					</c:when>
 					<c:when test="${member != null}">
-				<li role="presentation" class="active"><a href="/fare_guide/payment" aria-controls="notice" role="tab">
+				<li role="presentation" class="active"><a href="/fare_guide/payment?m_code=${member.m_code}" aria-controls="notice" role="tab">
 					<span style="font-size: medium">이용권구매</span></a></li>
 					</c:when>
 				</c:choose>
@@ -144,7 +144,7 @@
 					<td>
 						<div class="input-append">
 							<input type="text" name="usemileage" id="usemileage" class="form-control text-right">
-							<h5>내 마일리지 : <b>${member.m_mileage}</b> P</h5>
+							<h5>내 마일리지 : <b>${myMileage}</b> P</h5>
 						</div>
 					</td>
 					<td>
@@ -160,7 +160,7 @@
 			</table>
 		<div class="text-right">
 		<br/><br/>
-		  <button type="submit" class="btn btn-success btn-s" style="margin-top: 15px" onclick="paymentInfo()">확인</button>
+		  <button type="submit" class="btn btn-success btn-s" id="submit" style="margin-top: 15px" onclick="paymentInfo()">확인</button>
 		  <button type="button" class="btn btn-warning btn-s" id="goinghome" style="margin-top: 15px">취소하고 메인으로 돌아가기</button>
 		</div>
 	</div>
@@ -220,7 +220,7 @@
 	//마일리지와 결제금액 비교, 체크와 등급에 따른 마일리지 적립
 	function Check(){
 		var m_grade = '${member.m_grade}'; //등급
-		var m_mileage = parseInt('${member.m_mileage}'); //현재 내 마일리지
+		var m_mileage = parseInt('${myMileage}'); //현재 내 마일리지
 		var usemileage = $("#usemileage").val(); //텍스트 상자에 입력 한 마일리지 (사용 할 마일리지)
 		var p_money = $(":input:radio[name=amount]:checked").val() //라디오박스에서 선택한 정기권의 금액
 		var sum = p_money-usemileage; 
