@@ -17,9 +17,13 @@
       select * from tbl_gboard where g_code = #{g_code};
    </select>
    
-   <insert id = "regist" parameterType="GroupVO">
+   <insert id = "regist" parameterType="int">
       insert into tbl_group2(g_code, m_code) values (#{g_code}, #{m_code})
    </insert>
+   
+   <select id = "memcheck" parameterType="int" resultType="GroupVO">
+      select * from tbl_group2 where g_code = #{g_code}
+   </select>
    
    <insert id="makeboard">
       insert into tbl_gboard(g_code, b_code, b_name) values (#{g_code}, #{b_code}, #{b_name})

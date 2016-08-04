@@ -77,7 +77,7 @@ html,body{height:100%}
 		<div class="col-md-12" style="height: 1px; background-color: #D8D8D8"></div>
 		<div class="col-md-3"></div>
 		<div class="col-md-8">
-			<h2>현재 000개의 동아리가 있습니다.</h2>
+			
 		</div>
 		<div class="col-md-3"></div>
 		<br />
@@ -128,7 +128,7 @@ html,body{height:100%}
 			<div class="col-md-3"></div>
 			<div class="col-md-3">
 				<div class="notice3">
-					<h2>내가 가입한 동아리</h2>
+					<h2>동아리 정보</h2>
 
 					
 					<table class="table table-group">
@@ -140,7 +140,7 @@ html,body{height:100%}
 
 						<c:forEach items="${group }" var="group">
 							<tr>
-								<td><a href="/myclub/go?g_code=${group.g_code }&b_code=1">${group.name }</a></td>
+								<td><a href="/myclub/go?g_code=${group.g_code }&b_code=0">${group.name }</a></td>
 								<td>${group.purpose }</td>
 								<td>${group.m_code }</td>
 							</tr>

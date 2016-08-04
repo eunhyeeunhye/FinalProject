@@ -99,7 +99,7 @@ html,body{height:100%}
 			</div>
 			<div class="col-md-3"></div>
 		</div>
-		</div>
+	</div>
 <%@include file="../include/footer.jsp" %>
 <!-- 로그아웃 모달창 -->
 <div id="logoutmodal" class="modal bs-example-modal-sm" tabindex="-1" role="dialog">

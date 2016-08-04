@@ -31,81 +31,80 @@ html,body{height:100%}
 
 	<div id="wrap">
 	<div class="upper">
-      <div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
+		<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
 
-      <div class="row">
-         <div class="col-md-2"></div>
-         <div class="col-md-8">
-
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse"
-               id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                  <li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
-                  <li><a href="#">인기동아리</a></li>
-                  <li><a href="#">주제별 동아리</a></li>
-                  <li><a href="#">동아리 개설 취지</a></li>
-               </ul>
-               <ul class="nav navbar-right">
-                  <li><a href="#">동아리 개설하기</a></li>
-               </ul>
-
-            </div>
-         </div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 
 
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
+						<li><a href="#">인기동아리</a></li>
+						<li><a href="#">주제별 동아리</a></li>
+						<li><a href="#">동아리 개설 취지</a></li>
+					</ul>
+					<ul class="nav navbar-right">
+						<li><a href="#">동아리 개설하기</a></li>
+					</ul>
 
-      </div>
-
-      <div class="col-md-2"></div>
-   </div>
-   <!-- 상단바 -->
+				</div>
+			</div>
 
 
 
-   <div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
+		</div>
+
+		<div class="col-md-2"></div>
+	</div>
+	<!-- 상단바 -->
 
 
-   <div class="form-group">
-      <div class="col-md-4"></div>
-      <div class="col-md-5">
-         <div class="box box-primary">
-            <div class="box-header">
-               <h3 class="box-title">글 쓰기</h3>
-            </div>
-            
-            <form role="form" method="post">
 
-               <div class="box-body">
-                  <div class="form-group">
-                     <label for="title">제목</label> <input type="text" name='title'
-                        class="form-control" placeholder="제목을 작성하세요">
-                  </div>
-                  <div class="form-group">
-                     <label for="content">내용</label>
-                     <textarea class="form-control" name="content" rows="16"
-                        placeholder="내용을 작성하세욤"></textarea>
-                  </div>
-                  <input type = "hidden" name = "g_code" value = "${gcode}">
-                  <input type = "hidden" name = "b_code" value = "${group.b_code }">
-                  <input type = "hidden" name = "m_code" value = "${member.m_code }">
-
-               </div>
+	<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
 
 
-               <div class="box-footer">
-                  <button id="writing" type="button" class="btn btn-primary">작성</button>
-                  <button type="reset" class="btn btn-difault">취소</button>
-                  <button type="submit" class="btn btn-warning">목록으로</button>
-               </div>
-            </form>
+	<div class="form-group">
+		<div class="col-md-4"></div>
+		<div class="col-md-5">
+			<div class="box box-primary">
+				<div class="box-header">
+					<h3 class="box-title">글 쓰기</h3>
+				</div>
+				
+				<form role="form" method="post">
+
+					<div class="box-body">
+						<div class="form-group">
+							<label for="title">제목</label> <input type="text" name='title'
+								class="form-control" placeholder="제목을 작성하세요">
+						</div>
+						<div class="form-group">
+							<label for="content">내용</label>
+							<textarea class="form-control" name="content" rows="16"
+								placeholder="내용을 작성하세욤"></textarea>
+						</div>
+						<input type = "hidden" id = "g_code" name = "g_code" value = "${gcode}">
+						<input type = "hidden" name = "m_code" value = "${member.m_code }">
+
+					</div>
 
 
-         </div>
-      </div>
-      <div class="col-md-3"></div>
-   </div>
+					<div class="box-footer">
+						<button id="writing" type="button" class="btn btn-primary">작성</button>
+						<button type="reset" class="btn btn-difault">취소</button>
+						<button type="submit" class="btn btn-warning">목록으로</button>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 	</div>
 <%@include file="../include/footer.jsp" %>
 <!-- 로그아웃 모달창 -->

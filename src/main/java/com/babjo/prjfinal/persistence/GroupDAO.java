@@ -13,7 +13,10 @@ public interface GroupDAO {
    
    public void make(GroupVO vo) throws Exception;
 
-   public void join(GroupVO vo) throws Exception;
+   public void regist(int g_code, int m_code) throws Exception;
+   //public void join(GroupVO vo) throws Exception;
+   
+   public List<GroupVO> memcheck(int g_code) throws Exception;
    
    public List<GroupVO> infogroup() throws Exception;
    

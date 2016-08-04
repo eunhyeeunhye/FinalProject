@@ -31,72 +31,67 @@ html,body{height:100%}
 
 
 	<div id="wrap">
-	<div class="upper">
-		<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
+		<div class="upper">
+			<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
 
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
 
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
-						<li><a href="#">인기동아리</a></li>
-						<li><a href="#">주제별 동아리</a></li>
-						<li><a href="#">동아리 개설 취지</a></li>
-					</ul>
-					<ul class="nav navbar-right">
-						<li><a href="#">동아리 개설하기</a></li>
-					</ul>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="#" style="color: #6DD66D">동아리 홈</a></li>
+							<li><a href="#">인기동아리</a></li>
+							<li><a href="#">주제별 동아리</a></li>
+							<li><a href="#">동아리 개설 취지</a></li>
+						</ul>
+						<ul class="nav navbar-right">
+							<li><a href="#">동아리 개설하기</a></li>
+						</ul>
 
+					</div>
 				</div>
+
+
+
 			</div>
 
-
-
+			<div class="col-md-2"></div>
 		</div>
-
-		<div class="col-md-2"></div>
-	</div>
-	<!-- 상단바 -->
+		<!-- 상단바 -->
 
 
-	<div class="middle">
-		<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-			<div class="register">
-				<form class="form-horizontal">
-					<div class="title" style="margin-left: 30px">
-						<br /> <br /> <br />
-						<h2>동아리 개설완료</h2>
-						<br /> <br />
-					</div>
-				</form>
-
-				게시판 만들어 지셨어욤!
-				<form role="form" method="post">
-					<div class="form-group">
-						<div class="col-sm-offset-2">
-							<div class="col-sm-2">
-								<button type="submit" class="btn btn-primary">첫글 작성하러가기</button>
-							</div>
-
-							<div class="col-sm-2">
-								<button type="submit" class="btn btn-default">홈으로</button>
-							</div>
-
+		<div class="middle">
+			<div class="col-md-12" style="height: 2px; background-color: #D5D5D5"></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="register">
+					<form class="form-horizontal">
+						<div class="title" style="margin-left: 30px">
+							<br /> <br /> <br />
+							<h2>동아리 개설완료</h2>
+							<br /> <br />
 						</div>
-					</div>
-				</form>
-			</div>
+					</form>
 
+					게시판 만들어 지셨어욤!
+					<form role="form" method="get">
+						<input type="hidden" name="g_code" value="${gcode }">
+						<div class="form-group">
+
+							<button type="button" id="writeFirst" class="btn btn-primary">첫글
+								작성하러가기</button>
+							<button type="submit" class="btn btn-default">홈으로</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+			<div class="col-md-4"></div>
 		</div>
-		<div class="col-md-4"></div>
-	</div>
 	</div>
 <%@include file="../include/footer.jsp" %>
 <!-- 로그아웃 모달창 -->
@@ -122,11 +117,17 @@ html,body{height:100%}
 <script>
 	$(document).ready(function(){
 		var formObj = $("form[role='form']");
-		$(".btn-primary").on("click", function(){
-			formObj.attr("action", "/club/write");
+		$(".btn-primary").on("click", function() {
+			formObj.attr("action", "/club/write?g_code = ${gcode}");
 			formObj.attr("method", "GET");
 			formObj.submit();
 		});
+
+		/*
+		$("#writeFirst").on("click", function(){
+			$(location).attr('href', "/club/write?g_code =${gcode}");
+		})
+		 */
 		
 		$("#logoutconfirm").on("click", function() {
 			$(location).attr('href', "/member/logout");

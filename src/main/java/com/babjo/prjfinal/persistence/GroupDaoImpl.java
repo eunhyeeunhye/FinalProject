@@ -1,6 +1,8 @@
 package com.babjo.prjfinal.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -40,12 +42,20 @@ public class GroupDaoImpl implements GroupDAO{
       
    }
 
+   
    @Override
-   public void join(GroupVO vo) throws Exception {
-      SqlSession.insert(NAMESPACE+ ".join", vo);
+   public void regist(int g_code, int m_code) throws Exception {
+      Map<String, Object> param = new HashMap<String, Object>();
+      param.put("g_code", g_code);
+      param.put("m_code", m_code);
+      SqlSession.insert(NAMESPACE + ".regist", param);
    }
-
-
+   
+      
+   @Override
+   public List<GroupVO> memcheck(int g_code) throws Exception {
+      return SqlSession.selectList(NAMESPACE + ".memcheck", g_code);
+   }
    @Override
    public List<GroupVO> infogroup() throws Exception {
       return SqlSession.selectList(NAMESPACE + ".infogroup");
@@ -57,9 +67,5 @@ public class GroupDaoImpl implements GroupDAO{
       
       return SqlSession.selectList(NAMESPACE + ".gboard", g_code);
    }
-
-   
-
-   
 
 }

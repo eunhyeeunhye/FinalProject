@@ -37,13 +37,24 @@ public class GroupServiceImpl implements GroupService{
       dao.make(board);
       
    }
-
+   
    @Override
-   public void regist(GroupVO vo) throws Exception {
+   public void regist(int g_code, int m_code) throws Exception {
+      dao.regist(g_code, m_code);
+      
+   }
+   /*
+   @Override
+   public void join(GroupVO vo) throws Exception {
       dao.join(vo);
    }
-
-
+   */
+   
+   @Override
+   public List<GroupVO> memcheck(int g_code) throws Exception {
+      // TODO Auto-generated method stub
+      return dao.memcheck(g_code);
+   }
    @Override
    public List<GroupVO> infogroup() throws Exception {
       return dao.infogroup();
@@ -55,9 +66,5 @@ public class GroupServiceImpl implements GroupService{
       
       return dao.gboard(g_code);
    }
-
-   
-
-   
 
 }

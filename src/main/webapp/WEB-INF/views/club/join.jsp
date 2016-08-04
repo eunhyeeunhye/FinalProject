@@ -69,39 +69,26 @@ html,body{height:100%}
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<div class="register">
-				<form class="form-horizontal">
+			
 					<div class="title" style="margin-left: 30px">
 						<br /> <br /> <br />
 						<h2>동아리 가입하기</h2>
 						<br /> <br />
 					</div>
-				</form>
+				
 				<form role="form" method="post">
-					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">클럽코드</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name='g_code'
-								placeholder="가입할 클럽의 번호를 입력하세요.">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="m_code" class="col-sm-2 control-label">사용자</label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control" name='m_code'
-								placeholder="사용자 번호를 입력하세요.">
-						</div>
-					</div>
-
-
+					<input type = "hidden" name = "g_code" value = "${g_code }">
+					<input type = "hidden" name = "m_code" value = "${member.m_code }">
+					<input type = "hidden" name = "b_code" value = "0">
 				</form>
+				
+				
 				<div class = "form-group">
-					<div class = "col-sm-offset-2">
-						<div class = "clo-sm-2">
-							<button type = "submit" class = "btn btn-primary">가입하기</button>
-						</div>
-						<div class = "col-sm-2">
+					<div class = "col-sm-offset-4">
+							<h3>${g_code }번째 동아리 에 가입하기</h3>
+							<button type = "submit" class = "btn btn-primary">가입하기</button>						
 							<button type = "reset" class = "btn btn-default">취소</button>
-						</div>
+					
 					</div>
 				</div>
 

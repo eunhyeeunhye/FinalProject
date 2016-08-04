@@ -87,11 +87,11 @@ html,body{height:100%}
 			<div class="menu">
 				<div class="col-md-3"></div>
 				<div class="col-md-1">
-					<h3>동호회 메뉴</h3>
+					<br/>
 					<ul>
 						<c:forEach items="${group }" var="gboard">
 							<li>
-								<a href="/myclub/go?g_code=${gboard.g_code}&b_code =${gboard.b_code}">${gboard.b_name}</a>
+								<h4><a href="/myclub/go?g_code=${gboard.g_code}&b_code=${gboard.b_code}">${gboard.b_name}</a></h4>
 							</li>
 						</c:forEach>
 					</ul>
@@ -119,7 +119,7 @@ html,body{height:100%}
 							<tr>
 								<td>${board.bno }</td>
 								<td><a href='/club/read?bno=${board.bno }'>${board.title }</a></td>
-								<td>${board.m_code }</td>
+								<td>${board.m_code}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${board.regdate}" /></td>
 							</tr>
@@ -196,7 +196,25 @@ html,body{height:100%}
 <script>
 	$(document).ready(function(){
 		$("#write").on("click", function(){
-			$(location).attr('href', "/club/write");
+			<!--$(location).attr('href', "/club/write?g_code=${g_code}");-->
+			$.ajax({
+				type:"POST",
+				url:"/member/check",
+				data:{
+					g_code:"${g_code}",
+					m_code:"${member.m_code}",
+				},
+				success:function(result){
+					alert(result);
+					if(result=='{"result":"yes"}'){
+						$(location).attr('href', "/club/write?g_code=${g_code}");
+					}
+					else{
+						alert("동아리에 가입을 하셔야 해용");
+					}
+				}
+				
+			})
 		});
 		/*
 		$("#read").on("click", function(){
@@ -204,7 +222,7 @@ html,body{height:100%}
 		});
 		*/
 		$("#join").on("click", function(){
-			$(location).attr('href', "/club/join");
+			$(location).attr('href', "/club/join?g_code=${g_code}");
 		})
 		
 		$("#logoutconfirm").on("click", function() {
