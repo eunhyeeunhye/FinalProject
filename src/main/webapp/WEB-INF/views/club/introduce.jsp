@@ -69,7 +69,7 @@ html,body{height:100%}
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 			<br/><br/><br/><br/>
-				<img alt="" src="<c:url value = "/resources/images/introduce.png"></c:url>" 
+				<img src="<c:url value = "/resources/images/introduce.png"></c:url>" 
 				alt = "introduce" style = "width:700px; height : 1100px">
 
 			</div>
