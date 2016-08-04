@@ -2,6 +2,7 @@ package com.babjo.prjfinal.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +23,7 @@ import com.babjo.prjfinal.domain.BoardVO;
 import com.babjo.prjfinal.domain.GroupVO;
 import com.babjo.prjfinal.service.BoardService;
 import com.babjo.prjfinal.service.GroupService;
+import com.babjo.prjfinal.service.MemberService;
 
 @Controller
 public class ClubController {
@@ -31,11 +34,20 @@ public class ClubController {
    private BoardService service;
    @Inject
    private GroupService service2;
+   @Autowired
+   private MemberService service3;
 
    @RequestMapping(value = "/open/club", method = RequestMethod.GET)
    private String openClub(Model model) throws Exception {
       model.addAttribute("group", service2.infogroup());
       model.addAttribute("list", service.list());
+      if(!service.list().isEmpty()){
+			ArrayList<String> list = new ArrayList<String>();
+			for(int i=0; i<service.list().size(); i++){
+				list.add(service3.getWriter(service.list().get(i).getM_code()));
+			}
+			model.addAttribute("writer", list);
+      }
       return "/club/open";
    }
 
@@ -46,7 +58,13 @@ public class ClubController {
       model.addAttribute("list2", service.groupboard(g_code, b_code));
       System.out.println("요기 리스트 이게 글 가져와야하는건뎅?" + g_code + "," + b_code);
       
-      
+      if(!service.groupboard(g_code, b_code).isEmpty()){
+			ArrayList<String> list = new ArrayList<String>();
+			for(int i=0; i<service.groupboard(g_code, b_code).size(); i++){
+				list.add(service3.getWriter(service.groupboard(g_code, b_code).get(i).getM_code()));
+			}
+			model.addAttribute("writer", list);
+      }
       
       model.addAttribute("group", service2.gboard(g_code));
       System.out.println("이거는 동호회 목록 가져오는고" + g_code);
@@ -113,6 +131,9 @@ public class ClubController {
    @RequestMapping(value = "/club/read")
    private void readClub(@RequestParam("bno") int bno, Model model) throws Exception {
       model.addAttribute(service.read(bno));
+      if(service.read(bno) != null){
+    	  model.addAttribute("writer", service3.getWriter(service.read(bno).getM_code()));
+      }
       System.out.println(bno);
 
    }

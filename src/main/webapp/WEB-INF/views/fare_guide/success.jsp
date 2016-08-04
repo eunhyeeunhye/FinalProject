@@ -49,7 +49,8 @@
 					<span style="font-size: medium">이용권구매</span></a></li>
 			</ul>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4 text-center">
+		<br/>
 			<h3 style="color: #aaaaaa; font-size:xlarge">결제가 완료되었습니다!</h3><br/>
 			<input type="hidden" name="m_code" value="${member.m_code}" />
 			<table class="table table-hover">
@@ -72,13 +73,14 @@
 					<td><b>최종결제금액</b></td><td><b>${payInfo.p_money} 원</b></td>
 				</tr>
 			</table>
+			<div class="text-right">
+			  	<button type="button" class="btn btn-success btn-s" id="paylist" style="margin-top: 15px">
+			  	<span style="font-size: medium">결제내역조회</span></button>
+			  	<button type="button" class="btn btn-success btn-s" id="goinghome" style="margin-top: 15px">
+			  	<span style="font-size: medium">Home</span></button>
+			</div>
 		</div>
 		<div class="col-sm-4">
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		  	<button type="button" class="btn btn-default btn-s" id="paylist" style="margin-top: 15px">
-		  	<span style="font-size: medium">결제내역조회</span></button>
-		  	<button type="button" class="btn btn-default btn-s" id="goinghome" style="margin-top: 15px">
-		  	<span style="font-size: medium">Home</span></button>
 		</div>
 	</div>
 </div>

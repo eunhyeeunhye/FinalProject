@@ -138,11 +138,11 @@ html,body{height:100%}
 							<th>개설자</th>
 						</tr>
 
-						<c:forEach items="${group }" var="group">
+						<c:forEach items="${group }" var="group" varStatus="status">
 							<tr>
 								<td><a href="/myclub/go?g_code=${group.g_code }&b_code=0">${group.name }</a></td>
 								<td>${group.purpose }</td>
-								<td>${group.m_code }</td>
+								<td>${writer[status.index] }</td>
 							</tr>
 						</c:forEach>
 
@@ -160,11 +160,11 @@ html,body{height:100%}
 							<th>제목</th>
 							<th>글쓴이</th>
 						</tr>
-						<c:forEach items="${list }" var="board">
+						<c:forEach items="${list }" var="board" varStatus="status">
 
 							<tr>
 								<td><a href="/club/read?bno=${board.bno }">${board.title }</a></td>
-								<td>${board.m_code }</td>
+								<td>${writer[status.index] }</td>
 							</tr>
 
 						</c:forEach>

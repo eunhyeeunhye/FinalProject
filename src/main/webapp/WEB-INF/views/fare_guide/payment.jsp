@@ -158,11 +158,14 @@
 				</tr>
 
 			</table>
+		<div class="text-right">
+		<br/><br/>
+		  <button type="submit" class="btn btn-success btn-s" style="margin-top: 15px" onclick="paymentInfo()">확인</button>
+		  <button type="button" class="btn btn-warning btn-s" id="goinghome" style="margin-top: 15px">취소하고 메인으로 돌아가기</button>
+		</div>
 	</div>
 
 	<div class="col-sm-3">
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		  <button type="submit" class="btn btn-success btn-s" style="margin-top: 15px" onclick="paymentInfo()">확인</button>
 	</div>
 </form>
 </div>
@@ -197,6 +200,10 @@
 		
 		$("#mypage").on("click", function() {
 			$(location).attr('href', "/member/mypage");
+		});
+		
+		$("#goinghome").on("click", function() {
+			$(location).attr('href', "/");
 		});
 		
 		$("#usemileage").blur(function() {

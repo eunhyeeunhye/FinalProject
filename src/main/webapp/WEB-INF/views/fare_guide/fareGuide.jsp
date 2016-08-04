@@ -41,7 +41,7 @@
 </div>
 <div class="row">
 	<div class="col-sm-2"></div>
-	<div class="col-sm-2" style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 25%">
+	<div class="col-sm-2" style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 50%">
 			<ul class="nav nav-pills nav-stacked" role="tablist">
 				<li role="presentation" class="active"><a href="/fare_guide/fareGuide" aria-controls="notice" role="tab">
 					<span style="font-size: medium">요금안내</span></a></li>
@@ -59,23 +59,25 @@
 	</div>
 	
 	<div class="col-sm-4">
-	<h3>요금 안내</h3><br/>
+		<div class="text-center">
+			<img src="/resources/images/information/fare_guide.png"><br/><br/><br/>
+		</div>
 	<lavel>&nbsp; ■ 정기권 종류는 아래와 같습니다.</lavel><br/><br/>
 	<table class="table table-hover table-bordered text-center">
 				<tr class="success">
 					<td><b>정기권종류</b></td><td><b>정기권금액</b></td><td><b>비고</b></td>
 				</tr>
 				<tr>
-					<td>7일권</td><td>3000원</td>
+					<td>7일권</td><td>3000원</td><td></td>
 				</tr>
 				<tr>
-					<td>30일권</td><td>5000원</td>
+					<td>30일권</td><td>5000원</td><td></td>
 				</tr>
 				<tr>
-					<td>180일권</td><td>15000원</td>
+					<td>180일권</td><td>15000원</td><td></td>
 				</tr>
 				<tr>
-					<td>365일권</td><td>30000원</td>
+					<td>365일권</td><td>30000원</td><td></td>
 				</tr>
 	</table>
 	<lavel>&nbsp; ■ 결제안내</lavel><br/><br/>
@@ -85,10 +87,10 @@
 	&nbsp;- 회원님의 누적 결제금액에 따라 등급이 조정됩니다.<br/>
 	&nbsp;- 적립 된 마일리지는 다음 결제시 1P 단위로 사용가능합니다.<br/>
 	&nbsp;- 마일리지는 회원 등급에 따라 다르게 적립됩니다.(아래내용참고)<br/><br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;준회원 : 총 결제금액의 8%<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정회원 : 총 결제금액의 10%<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;우수회원 : 총 결제금액의 15%<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;특별회원 : 총 결제금액의 20%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> 준회원 : 총 결제금액의 8%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> 정회원 : 총 결제금액의 10%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> 우수회원 : 총 결제금액의 15%<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;> 특별회원 : 총 결제금액의 20%<br/>
 	</div>
 	<div class="col-sm-4">
 	</div>

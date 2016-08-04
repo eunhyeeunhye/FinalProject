@@ -42,7 +42,7 @@
 	<div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-2"
-			style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 25%">
+			style="background-color: #eeeeee; padding-top: 1%; padding-bottom: 35%">
 			<ul class="nav nav-pills nav-stacked" role="tablist">
 				<li role="presentation"><a href="/service_guide/AboutUs"
 					aria-controls="notice" role="tab"><span
@@ -53,7 +53,7 @@
 			</ul>
 		</div>
 		<div class="col-sm-5">
-			<img src="/resources/images/information/useInfo.jpg">
+			<img src="/resources/images/information/useInfo.png">
 		</div>
 		<div class="col-sm-3"></div>
 	</div>

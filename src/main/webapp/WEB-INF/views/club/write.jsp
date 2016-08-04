@@ -96,7 +96,6 @@ html,body{height:100%}
 					<div class="box-footer">
 						<button id="writing" type="button" class="btn btn-primary">작성</button>
 						<button type="reset" class="btn btn-difault">취소</button>
-						<button type="submit" class="btn btn-warning">목록으로</button>
 					</div>
 				</form>
 
@@ -140,14 +139,6 @@ html,body{height:100%}
 			formObj.attr("action", "/club/write");
 			formObj.submit();
 			
-		});
-		
-		
-		$(".btn-warning").on("click", function(){
-			//formObj.attr("action", "/club/inf");
-			//formObj.attr("method","get");
-			//formObj.submit();
-			self.location = "/myclub/go";
 		});
 		
 		$("#logoutconfirm").on("click", function() {

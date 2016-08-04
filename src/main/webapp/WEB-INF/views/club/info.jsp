@@ -115,13 +115,12 @@ html,body{height:100%}
 							<th>글쓴이</th>
 							<th>날짜</th>
 						</tr>
-						<c:forEach items="${list2 }" var="board">
+						<c:forEach items="${list2 }" var="board" varStatus="status">
 							<tr>
 								<td>${board.bno }</td>
 								<td><a href='/club/read?bno=${board.bno }'>${board.title }</a></td>
-								<td>${board.m_code}</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-										value="${board.regdate}" /></td>
+								<td>${writer[status.index]}</td>
+								<td>${board.regdate}</td>
 							</tr>
 						</c:forEach>
 						<!-- <tr>

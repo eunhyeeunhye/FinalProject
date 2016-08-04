@@ -84,7 +84,7 @@ html,body{height:100%}
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">작성자</label> <input type="text"
-							name="writer" class="form-control" value="${boardVO.m_code}"
+							name="writer" class="form-control" value="${writer}"
 							readonly="readonly">
 					</div>
 				</div>
@@ -93,7 +93,6 @@ html,body{height:100%}
 				<div class="box-footer">
 					<button type="submit" class="btn btn-primary">수정</button>
 					<button type="submit" class="btn btn-danger">삭제</button>
-					<button type="submit" class="btn btn-warning">목록으로</button>
 				</div>
 
 			</div>
@@ -134,13 +133,6 @@ html,body{height:100%}
 			formObj.attr("action", "/club/remove");
 			formObj.attr("method", "POST");
 			formObj.submit();
-		});
-		
-		$(".btn-warning").on("click", function(){
-			//formObj.attr("action", "/club/inf");
-			//formObj.attr("method","get");
-			//formObj.submit();
-			self.location = "/myclub/go";
 		});
 		
 		$("#logoutconfirm").on("click", function() {

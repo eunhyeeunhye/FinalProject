@@ -9,7 +9,7 @@
 		  <div id="navbar" class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header col-md-2" style="margin-right: 40px;">
-		      <a class="navbar-brand" href="/"><img alt="Brand" src="<c:url value="/resources/images/logo.png"></c:url>" style="width: 100%; height: auto; margin-top: 20px"></img></a>
+		      <a class="navbar-brand" href="/"><img alt="Brand" src="<c:url value="/resources/images/logo2.png"></c:url>" style="width: 130%; height: auto; margin-top: 18px"></img></a>
 		    </div>
 		
 		    <!-- Collect the nav links, forms, and other content for toggling -->

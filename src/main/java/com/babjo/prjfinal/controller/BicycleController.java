@@ -68,7 +68,6 @@ public class BicycleController {
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(p_date);
 				cal.add(Calendar.DATE, usedate);
-				System.out.println(date.compareTo(cal.getTime()));
 				
 				if(date.compareTo(cal.getTime()) == 1){
 					result = "1";
