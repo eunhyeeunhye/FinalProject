@@ -75,6 +75,8 @@ public class ClubController {
       model.addAttribute("group", service2.gboard(g_code));
       System.out.println("이거는 동호회 목록 가져오는고" + g_code);
       model.addAttribute("g_code", g_code);
+      
+      model.addAttribute("g_name", service2.gname(g_code));
       //model.addAttribute("m_name",service.memname());
       //System.out.println("mcode" +m_code);
 

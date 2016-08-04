@@ -41,5 +41,8 @@
       select * from tbl_gboard where g_code=#{g_code}
    </select>
    
+   <select id = "gname" parameterType="int" resultType="String">
+   	  select name from tbl_group1 where g_code = #{g_code} 
+   </select>
    
 </mapper>

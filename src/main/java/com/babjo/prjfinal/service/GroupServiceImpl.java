@@ -67,4 +67,9 @@ public class GroupServiceImpl implements GroupService{
       return dao.gboard(g_code);
    }
 
+	@Override
+	public String gname(int g_code) throws Exception {
+		return dao.gname(g_code);
+	}
+
 }

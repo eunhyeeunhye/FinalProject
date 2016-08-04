@@ -68,4 +68,9 @@ public class GroupDaoImpl implements GroupDAO{
       return SqlSession.selectList(NAMESPACE + ".gboard", g_code);
    }
 
+	@Override
+	public String gname(int g_code) throws Exception {
+		return SqlSession.selectOne(NAMESPACE + ".gname", g_code);
+	}
+
 }

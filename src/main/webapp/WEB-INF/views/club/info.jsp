@@ -70,7 +70,7 @@ html,body{height:100%}
 			<div class="title">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
-					<h2>동아리 이름</h2>
+					<h2>${g_name}</h2>
 				</div>
 				<div class="col-md-3"></div>
 			</div>

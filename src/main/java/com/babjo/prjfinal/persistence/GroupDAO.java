@@ -21,4 +21,6 @@ public interface GroupDAO {
    public List<GroupVO> infogroup() throws Exception;
    
    public List<GroupVO> gboard (int g_code) throws Exception;
+   
+   public String gname(int g_code) throws Exception;
 }
