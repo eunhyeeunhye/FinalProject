@@ -1,3 +1,11 @@
+<!-- 
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.24
+ 3. 내용 : 동아리 정보 페이지로서 사용자가 선택한 동아리에 가입했는지 여부 확인해서 글 작성 가능/불가능 나눔
+ 4. 수정내역 : 	2016.07.28
+
+ -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
 <html>
@@ -194,9 +202,11 @@ html,body{height:100%}
 <script src="<c:url value="/resources/js/bootstrap.min.js"></c:url>"></script>
 <script>
 	$(document).ready(function(){
+		var m_code = "<c:out value="${member.m_code}"/>"
+		
 		$("#write").on("click", function(){
 			<!--$(location).attr('href', "/club/write?g_code=${g_code}");-->
-			if("${member.m_code}" == null){
+			if(m_code != 0){
 				$.ajax({
 					type:"POST",
 					url:"/member/check",
@@ -226,7 +236,7 @@ html,body{height:100%}
 		});
 		*/
 		$("#join").on("click", function(){
-			if("${member.m_code}" == null){
+			if(m_code != 0){
 				$(location).attr('href', "/club/join?g_code=${g_code}");
 			}
 			else{

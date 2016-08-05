@@ -1,3 +1,10 @@
+/*
+ * 작성자 : 김성주
+ * 작성일 : 2016.07.19
+ * 내용 : 고객센터(1:1문의) 관련 DAO
+ * 수정내역 : 
+ */
+
 package com.babjo.prjfinal.persistence;
 
 import java.util.List;

@@ -1,3 +1,11 @@
+<!-- 
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.24
+ 3. 내용 : 게시판 개설 완료 페이지
+ 4. 수정내역 : 	----
+
+ -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"
 	isELIgnored="false"%>

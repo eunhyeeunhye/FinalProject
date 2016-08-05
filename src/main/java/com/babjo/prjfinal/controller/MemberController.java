@@ -1,3 +1,11 @@
+/*
+ * 작성자 : 이현호
+ * 작성일 : 2016.07.19
+ * 내용 : 로그인, 회원가입, 마이페이지로 이동 및 실행하는 Controller
+ * 수정내역 : 2016.08.01 mypage로 이동 할 때 내가 가입한 동아리 호출되도록 수정
+ * 		2016.08.02 mypage로 이동 할 때 내 적립 마일리지, 구입한 정기권 호출되도록 수정
+ */
+
 package com.babjo.prjfinal.controller;
 
 import java.io.IOException;
@@ -29,17 +37,20 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 	
+	// 로그인 페이지 이동
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(){
 		return "member/login";
 	}
 	
+	// 로그아웃 실행
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpServletRequest req){
 		req.getSession().invalidate();
 		return "redirect:/";
 	}
 	
+	// 로그인 실행, 세션 전달
 	@RequestMapping(value="/doLogin", method=RequestMethod.POST)
 	public String doLogin(String m_id, String m_pw, HttpServletRequest req, Model model) throws Exception{
 		try{
@@ -58,17 +69,20 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	// 회원가입 페이지 이동
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public String signup(){
 		return "member/signup";
 	}
 	
+	// 회원가입 실행
 	@RequestMapping(value="/doSignup", method=RequestMethod.POST)
 	public String doSignup(@ModelAttribute MemberVO member){
 		service.doSignup(member);
 		return "member/login";
 	}
 	
+	// 회원가입 시 id 중복 체크
 	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
 	public void idCheck(String m_id, HttpServletResponse resp){
 		String result = null;
@@ -96,6 +110,7 @@ public class MemberController {
 
 	}
 	
+	// 마이페이지 이동 및 실행
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	public String mypage(int m_code, Model model){
 		if(!service.payList(m_code).isEmpty()){
@@ -116,6 +131,7 @@ public class MemberController {
 		return "member/mypage";
 	}
 	
+	// 개인정보 수정 실행
 	@RequestMapping(value="/doupdate", method=RequestMethod.POST)
 	public String doUpdate(@ModelAttribute MemberVO member, HttpServletRequest req){
 		service.doUpdate(member);
@@ -123,12 +139,14 @@ public class MemberController {
 		return "member/login";
 	}
 	
+	// 이용내역 페이지 이동 및 실행
 	@RequestMapping(value="/uselist", method=RequestMethod.GET)
 	public String uselist(int m_code, Model model){
 		model.addAttribute("useList", service.useList(m_code));
 		return "member/uselist";
 	}
 	
+	// 결제내역 페이지 이동 및 실행
 	@RequestMapping(value="/paylist", method=RequestMethod.GET)
 	public String paylist(int m_code, Model model){
 		if(!service.payList(m_code).isEmpty()){

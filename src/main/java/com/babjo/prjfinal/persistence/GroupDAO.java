@@ -1,3 +1,10 @@
+/**
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.21
+ 3. 내용 : 동아리 기능 담당 dao
+ 4. 수정내역 :    2016.07.29
+ **/
+
 package com.babjo.prjfinal.persistence;
 
 import java.util.List;

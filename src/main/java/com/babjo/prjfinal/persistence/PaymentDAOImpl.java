@@ -1,9 +1,15 @@
+/*
+ * 작성자 : 강인영
+ * 작성일 : 2016.07.19
+ * 내용 : 결제 관련 DAO
+ * 수정내역 : 2016.08.04 myMileage 추가
+ */
+
 package com.babjo.prjfinal.persistence;
 
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.xml.stream.events.Namespace;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;

@@ -1,3 +1,11 @@
+<!-- 
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.25
+ 3. 내용 : 동아리 개설 정보작성 페이지
+ 4. 수정내역 : 	2016.07.29
+
+ -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8" isELIgnored="false"%>
 <html>

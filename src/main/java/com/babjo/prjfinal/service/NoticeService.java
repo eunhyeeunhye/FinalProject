@@ -1,3 +1,10 @@
+/*
+ * 작성자 : 김성주
+ * 작성일 : 2016.07.19
+ * 내용 : 고객센터(공지사항) 관련 Service
+ * 수정내역 : 
+ */
+
 package com.babjo.prjfinal.service;
 
 import java.util.List;

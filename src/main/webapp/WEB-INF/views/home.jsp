@@ -1,5 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" isELIgnored="false"%>
+<!-- 
+	작성자 : 이현호
+	작성일 : 2016.07.19
+	내용 : 홈 페이지
+	수정내역 : 2016.08.04 Home 페이지로 이동 할 때 공지사항, 동아리 글 호출되도록 수정
+ -->
 <html>
 <head>
 	<title>GreenCycle - Home</title>

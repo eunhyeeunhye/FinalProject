@@ -1,3 +1,11 @@
+/**
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.21
+ 3. 내용 : 게시판 기능 담당 서비스
+ 4. 수정내역 :    2016.07.29 cbard등 세세한 기능위한 추가 및 수정
+ 
+ **/
+
 package com.babjo.prjfinal.service;
 
 import java.util.List;

@@ -1,5 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 
+	작성자 : 이현호
+	작성일 : 2016.07.19
+	내용 : 회원가입 페이지
+	수정내역 :
+ -->
 <!DOCTYPE html>
 <html>
 <head>

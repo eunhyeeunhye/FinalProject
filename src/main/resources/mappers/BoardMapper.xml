@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.20
+ 3. 내용 : 게시판의 전반적 기능을 담당하는 매퍼
+ 4. 수정내역 :    2016.07.30 필요한 기능들 추가
+ -->
  <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">

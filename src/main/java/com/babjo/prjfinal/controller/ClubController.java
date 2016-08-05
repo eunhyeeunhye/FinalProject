@@ -1,3 +1,14 @@
+/**
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.20
+ 3. 내용 : 동아리 개설 * 가입 * 게시판 생성 * 글작성 기능 담당 컨트롤러 (동아리의 전반적 기능)
+ 4. 수정내역 :    2016.07.21 read 기능 작성
+          2016.07.26 글 작성등 기본적 개시판 기능 완성
+          2016.07.28 동아리 개설, 게시판 생성, 동아리 가입등의 기능 구현
+          2016.07.30 회원가입 로그인 후 회원의 정보 사용 가능하도록 함
+          
+ **/
+
 package com.babjo.prjfinal.controller;
 
 import java.io.IOException;
@@ -36,7 +47,8 @@ public class ClubController {
    private GroupService service2;
    @Autowired
    private MemberService service3;
-
+   
+   //메인 화면에서 동아리 항목을 선택했을때 동아리 홈을 보여주는 화면이다. 동아리의 정보와 작성된 글 등을 보여준다.ㄴ
    @RequestMapping(value = "/open/club", method = RequestMethod.GET)
    private String openClub(Model model) throws Exception {
       model.addAttribute("group", service2.infogroup());
@@ -51,12 +63,15 @@ public class ClubController {
       return "/club/open";
    }
 
-   
+   //동아리란? 버튼을 눌렀을때 정보를 제공하도록 함 동아리의 취지등을 소개하는 화면 이동
    @RequestMapping(value = "/club/introduce")
    public String introduce(){
       return "/club/introduce";
    }
    
+   
+   //동아리 목록중 하나를 선택했을때 그에 해당하는 게시판과 글을 보여준다. 글쓰기등의 기능은 회원이 동아리에 가입했을때 가능하다.
+ 
    @RequestMapping(value = "/myclub/go", method = RequestMethod.GET)
    public String goClub(Model model, @RequestParam("g_code") int g_code, @RequestParam("b_code") int b_code)
          throws Exception {
@@ -77,18 +92,18 @@ public class ClubController {
       model.addAttribute("g_code", g_code);
       
       model.addAttribute("g_name", service2.gname(g_code));
-      //model.addAttribute("m_name",service.memname());
-      //System.out.println("mcode" +m_code);
+    
 
       return "/club/info";
    }
 
-   // 동아리만드는 코드
+   // 동아리개설 화면 호출
    @RequestMapping(value = "/make/club", method = RequestMethod.GET)
    private String MakeClub() {
       return "club/estab";
    }
 
+   //동아리 개설 양식을 작성후 제출할 수 이는 코드
    @RequestMapping(value = "/make/club", method = RequestMethod.POST)
    public String estabClub(GroupVO vo, Model model) throws Exception {
       service2.estab(vo);
@@ -99,14 +114,16 @@ public class ClubController {
       return "club/check";
    }
 
-   // 게시판 만드는 코드
+   // 게시판 만드는 화면 호출
    @RequestMapping(value = "/club/make", method = RequestMethod.GET)
    public String makeBoardGet(@RequestParam("g_code") int g_code, Model model) {
       System.out.println("아아" + g_code);
       model.addAttribute("gcode", g_code);
       return "club/make";
    }
-
+   
+   
+   //개설할 게시판의 정보를 입력하고 이를 저장하는 코드
    @RequestMapping(value = "/club/make", method = RequestMethod.POST)
    public String makeBoardPost(GroupVO board, Model model) throws Exception {
       service2.make(board);
@@ -115,6 +132,8 @@ public class ClubController {
       return "/club/m_check";
    }
 
+   
+   //글을 작성하는 페이지를 호출하는것으로 g_code를 이용해 선택한 동아리의 게시판에 글을 작성 할 수 있다.
    @RequestMapping(value = "/club/write", method = RequestMethod.GET)
    private String writeClubGet(Model model, @RequestParam("g_code") int g_code) {
       model.addAttribute("gcode", g_code);
@@ -122,6 +141,7 @@ public class ClubController {
       return "club/write";
    }
 
+   //글을 작성하는 코드로 동아리의 g_code와 사용자의 m_code를 사용한다.
    @RequestMapping(value = "/club/write", method = RequestMethod.POST)
    public String writeClubPost(@ModelAttribute BoardVO board) throws Exception {
       System.out.println("아오" + board.getG_code());
@@ -136,6 +156,8 @@ public class ClubController {
       // return null;
    }
 
+   
+   //글을 읽을수 있는 기능으로 게시판의 긍을 읽을 수 있다.
    @RequestMapping(value = "/club/read")
    private void readClub(@RequestParam("bno") int bno, Model model) throws Exception {
       model.addAttribute(service.read(bno));
@@ -146,12 +168,14 @@ public class ClubController {
 
    }
 
+   //글 수정 화면 호출
    @RequestMapping(value = "/club/modify")
    private String modifyGet(@RequestParam("bno") int bno, Model model) throws Exception {
       model.addAttribute(service.read(bno));
       return "club/modify";
    }
 
+   //글 수정 기능 담당
    @RequestMapping(value = "/club/modify", method = RequestMethod.POST)
    public String modifyPost(BoardVO board, Model model) throws Exception {
       service.modify(board);
@@ -159,12 +183,15 @@ public class ClubController {
       return "redirect:/club/read";
    }
 
+   //삭제 기능담당
    @RequestMapping(value = "/club/remove", method = RequestMethod.POST)
    public String delete(@RequestParam("bno") int bno) throws Exception {
       service.remove(bno);
       return "redirect:/myclub/go";
    }
 
+   
+   //동아리에 가입하는 기능으로 동아리의 g_code와 session에 저장되어있는 사용자의 m_code를 받아와 넘겨준다.
    @RequestMapping("/club/join")
    public String joinGet(@RequestParam("g_code") int g_code, Model model) throws Exception {
       System.out.println("가입 페이지" + g_code);
@@ -175,6 +202,7 @@ public class ClubController {
 
    }
 
+   ///동아리에 가입하는 기능으로 동아리의 g_code와 session에 저장되어있는 사용자의 m_code를 이욯해 진행한다.
    @RequestMapping(value = "/club/join", method = RequestMethod.POST)
    public String joinPost(@ModelAttribute GroupVO vo, Model model) throws Exception {
       System.out.println(vo.getG_code() + ", " + vo.getM_code());
@@ -188,6 +216,8 @@ public class ClubController {
       // return null;
    }
 
+   
+   //사용자가 해당 동아리에 가입이 되어있는지 화인함. 가입이 되어있다면 글 작성이 가능하고 가입되어있지않다면 글을 작성할 수 없다.
    @RequestMapping(value = "/member/check", method = RequestMethod.POST)
    public void memberCheck(@RequestParam("g_code") int g_code, @RequestParam("m_code") int m_code,
          HttpServletResponse resp) throws Exception {

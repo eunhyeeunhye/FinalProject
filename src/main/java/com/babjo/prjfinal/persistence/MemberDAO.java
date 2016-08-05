@@ -1,3 +1,12 @@
+/*
+ * 작성자 : 이현호
+ * 작성일 : 2016.07.19
+ * 내용 : 멤버 관련 DAO
+ * 수정내역 : 2016.08.01 myClub1, myClub2 추가
+ * 		2016.08.02 myMileage 추가
+ * 		2016.08.03 getWriter 추가
+ */
+
 package com.babjo.prjfinal.persistence;
 
 import java.util.List;

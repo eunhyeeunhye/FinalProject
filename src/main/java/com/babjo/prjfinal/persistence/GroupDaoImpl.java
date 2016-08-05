@@ -1,3 +1,10 @@
+/**
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.07.21
+ 3. 내용 : 동아리 기능 담당 daoImpl
+ 4. 수정내역 :    2016.07.30
+ **/
+
 package com.babjo.prjfinal.persistence;
 
 import java.util.HashMap;
@@ -68,9 +75,9 @@ public class GroupDaoImpl implements GroupDAO{
       return SqlSession.selectList(NAMESPACE + ".gboard", g_code);
    }
 
-	@Override
-	public String gname(int g_code) throws Exception {
-		return SqlSession.selectOne(NAMESPACE + ".gname", g_code);
-	}
+   @Override
+   public String gname(int g_code) throws Exception {
+      return SqlSession.selectOne(NAMESPACE + ".gname", g_code);
+   }
 
 }

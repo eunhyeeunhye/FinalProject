@@ -1,3 +1,11 @@
+<!-- 
+ 1. 작성자 : 최은혜
+ 2. 작성일 : 2016.08.03
+ 3. 내용 : 동아리 기능 설명 페이지
+ 4. 수정내역 : 	
+
+ -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="true" contentType="text/html; charset=UTF-8"
    isELIgnored="false"%>

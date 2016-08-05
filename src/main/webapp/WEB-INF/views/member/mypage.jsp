@@ -1,5 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 
+	작성자 : 이현호
+	작성일 : 2016.07.19
+	내용 : 마이페이지(내 정보)
+	수정내역 : 2016.08.01 내 동아리 정보 추가
+			2016.08.02 내 마일리지, 정기권 정보 추가
+ -->
 <!DOCTYPE html>
 <html>
 <head>

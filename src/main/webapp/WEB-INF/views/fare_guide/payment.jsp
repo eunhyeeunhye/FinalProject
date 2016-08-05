@@ -1,5 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
+<!-- 
+	작성자 : 강인영
+	작성일 : 2016.07.19
+	내용 : 결제 페이지
+	수정내역 : 2016.08.04 '내 마일리지' 바로 갱신 되도록 변경.
+ -->
+
 <html>
 <head>
 	<title>이용권 구매</title>

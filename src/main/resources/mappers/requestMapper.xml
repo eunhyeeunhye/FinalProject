@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- 
+작성자 : 김성주
+작성일 : 2016.07.19
+내용 : 고객센터(공지사항) 관련 MyBatis Mapper
+수정내역 : 
+ -->
+
 <mapper namespace="com.rkskekabc.mappers.RequestMapper">
 	<insert id="writeRequest">
 		insert into tbl_request(m_code, m_id, title, content)

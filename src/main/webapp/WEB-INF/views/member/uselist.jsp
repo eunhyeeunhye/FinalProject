@@ -1,5 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 
+	작성자 : 이현호
+	작성일 : 2016.07.19
+	내용 : 이용내역 페이지
+	수정내역 : 2016.07.29 자전거 반납 기능 추가
+ -->
 <!DOCTYPE html>
 <html>
 <head>

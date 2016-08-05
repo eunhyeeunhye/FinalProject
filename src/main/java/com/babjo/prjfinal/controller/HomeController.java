@@ -1,7 +1,13 @@
+/*
+ * 작성자 : 이현호
+ * 작성일 : 2016.07.19
+ * 내용 : Home 페이지로 이동하는 Controller
+ * 수정내역 : 2016.08.04 Home 페이지로 이동 할 때 공지사항, 동아리 글 호출되도록 수정
+ */
+
 package com.babjo.prjfinal.controller;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -50,14 +56,14 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		model.addAttribute("noticeList", service.getNoticeList());
-		model.addAttribute("clubList", service2.list());
+		model.addAttribute("noticeList", service.getNoticeList()); // 공지사항
+		model.addAttribute("clubList", service2.list()); // 동아리 글
 		if(!service2.list().isEmpty()){
 			ArrayList<String> list = new ArrayList<String>();
 			for(int i=0; i<service2.list().size(); i++){
 				list.add(service3.getWriter(service2.list().get(i).getM_code()));
 			}
-			model.addAttribute("writer", list);
+			model.addAttribute("writer", list); // 동아리 글 작성자 이름
 		}
 		
 		return "home"; 

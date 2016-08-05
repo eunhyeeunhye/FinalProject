@@ -1,3 +1,9 @@
+<!-- 
+	작성자 : 이현호
+	작성일 : 2016.07.19
+	내용 : 헤더(상단바)
+	수정내역 :
+ -->
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="row">
 	<div class="col-md-12" style="height:10px; background-color: #6DD66D"></div>

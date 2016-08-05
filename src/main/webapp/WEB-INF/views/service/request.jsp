@@ -1,6 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!-- 
+	작성자 : 김성주
+	작성일 : 2016.07.19
+	내용 : 1:1문의 리스트 페이지
+	수정내역 :
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>

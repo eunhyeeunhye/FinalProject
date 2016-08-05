@@ -1,5 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" contentType="text/html; charset=UTF-8"%>
+<!-- 
+	작성자 : 강인영
+	작성일 : 2016.07.19
+	내용 : 서비스 안내 페이지
+	수정내역 : 2016.08.04 서비스페이지 image변경
+ -->
+
 <html>
 <head>
 	<title>GreenCycle이란?</title>

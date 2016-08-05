@@ -1,3 +1,10 @@
+/*
+ * 작성자 : 이현호
+ * 작성일 : 2016.07.19
+ * 내용 : 멤버 관련 VO
+ * 수정내역 : 
+ */
+
 package com.babjo.prjfinal.domain;
 
 public class MemberVO {
